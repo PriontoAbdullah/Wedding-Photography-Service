@@ -26,10 +26,10 @@ const Nav = () => {
             <a
               href="/"
               className="signup-button"
-              aria-label="Sign up"
-              title="Sign up"
+              aria-label="Book Now"
+              title="Book Now"
             >
-              Sign up
+              Book Now
             </a>
           </li>
         </ul>
@@ -102,11 +102,11 @@ const Nav = () => {
                     <li>
                       <a
                         href="/"
-                        className="signup-button"
-                        aria-label="Sign up"
-                        title="Sign up"
+                        className="signup-button w-full"
+                        aria-label="Book Now"
+                        title="Book Now"
                       >
-                        Sign up
+                        Book Now
                       </a>
                     </li>
                   </ul>
