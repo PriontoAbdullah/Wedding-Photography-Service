@@ -1,3 +1,14 @@
+/* import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+
+/* Initial Tailwind Setup */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* common css classes */
+
+.signup-button {
+  @apply inline-flex items-center justify-center h-12 px-6 font-display font-bold text-lg tracking-wide text-white transition duration-200 rounded shadow-md bg-red-accent-400 hover:bg-red-accent-700 focus:shadow-outline focus:outline-none;
+}

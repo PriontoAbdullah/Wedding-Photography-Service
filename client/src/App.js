@@ -1,10 +1,12 @@
+import { Fragment } from "react";
 import "./App.css";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <div>
-      <h1>📷 Wedding Photography ❤️</h1>
-    </div>
+    <Fragment>
+      <Home />
+    </Fragment>
   );
 };
 
