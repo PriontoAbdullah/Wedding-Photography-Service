@@ -1,4 +1,15 @@
 import React from "react";
+import image3 from "../../images/gallery/Couple-15.jpg";
+import image1 from "../../images/gallery/Bride-9.jpg";
+import image2 from "../../images/gallery/Couple-19.jpg";
+import image4 from "../../images/gallery/Couple-1.jpg";
+import image5 from "../../images/gallery/Couple-10.jpg";
+import image7 from "../../images/gallery/Couple-18.jpg";
+import image6 from "../../images/gallery/Details-17.jpg";
+import image8 from "../../images/gallery/Couple-14.jpg";
+import image9 from "../../images/gallery/Couple-9.jpg";
+import image10 from "../../images/gallery/Couple-8.jpg";
+
 
 const Gallery = () => {
   return (
@@ -6,9 +17,9 @@ const Gallery = () => {
       <div className="flex flex-col mb-6 lg:flex-row md:mb-10">
         <div className="lg:w-1/2">
           <h2 className="max-w-md mb-6 font-display text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none xl:max-w-lg">
-            <span className="text-deep-orange-accent-700">Our Gallery</span>{" "}
-            What We Do ! <br />
-            <span className="leading-loose ">
+            <span className="text-deep-orange-accent-700">Our Creative Gallery</span>
+            <br />
+            <span className="leading-loose">
               Spare a Though & Get Inspired
             </span>
             <div className="h-1 ml-auto duration-300 origin-left transform bg-red-600 scale-x-30 group-hover:scale-x-100" />
@@ -25,57 +36,57 @@ const Gallery = () => {
           </p>
         </div>
       </div>
-      <div className="py-6 bg-coolGray-100 text-coolGray-900">
-        <div className="container mx-auto grid grid-cols-2 gap-4 p-4 md:grid-cols-4">
+      <div className="py-6  text-red-900">
+        <div className="container mx-auto grid grid-cols-2 gap-4 p-4 md:grid-cols-4 transition-all duration-500 ease-in-out">
           <img
-            src="https://source.unsplash.com/301x301/?random"
+            src={image1}
             alt="Gallery"
-            className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1"
+            className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 hover:opacity-90"
           />
           <img
             alt="Gallery"
-            className="w-full h-full rounded shadow-sm min-h-48"
-            src="https://source.unsplash.com/200x200/?random"
+            className="w-full h-full rounded shadow-sm min-h-48 hover:opacity-90"
+            src={image3}
           />
           <img
             alt="Gallery"
-            className="w-full h-full rounded shadow-sm min-h-48"
-            src="https://source.unsplash.com/201x201/?random"
+            className="w-full h-full rounded shadow-sm min-h-48 hover:opacity-90"
+            src={image4}
           />
           <img
             alt="Gallery"
-            className="w-full h-full rounded shadow-sm min-h-48"
-            src="https://source.unsplash.com/202x202/?random"
+            className="w-full h-full rounded shadow-sm min-h-48 hover:opacity-90"
+            src={image6}
           />
           <img
             alt="Gallery"
-            className="w-full h-full rounded shadow-sm min-h-48"
-            src="https://source.unsplash.com/203x203/?random"
+            className="w-full h-full rounded shadow-sm min-h-48 hover:opacity-90"
+            src={image5}
           />
           <img
             alt="Gallery"
-            className="w-full h-full rounded shadow-sm min-h-48"
-            src="https://source.unsplash.com/204x204/?random"
+            className="w-full h-full rounded shadow-sm min-h-48 hover:opacity-90"
+            src={image7}
           />
           <img
             alt="Gallery"
-            className="w-full h-full rounded shadow-sm min-h-48"
-            src="https://source.unsplash.com/205x205/?random"
+            className="w-full h-full rounded shadow-sm min-h-48 hover:opacity-90"
+            src={image8}
           />
           <img
             alt="Gallery"
-            className="w-full h-full rounded shadow-sm min-h-48"
-            src="https://source.unsplash.com/206x206/?random"
+            className="w-full h-full rounded shadow-sm min-h-48 hover:opacity-90"
+            src={image9}
           />
           <img
             alt="Gallery"
-            className="w-full h-full rounded shadow-sm min-h-48"
-            src="https://source.unsplash.com/207x207/?random"
+            className="w-full h-full rounded shadow-sm min-h-48 hover:opacity-90"
+            src={image10}
           />
           <img
-            src="https://source.unsplash.com/302x302/?random"
+            src={image2}
             alt="Gallery"
-            className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-1 md:row-start-3"
+            className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-1 md:row-start-3 hover:opacity-90"
           />
         </div>
       </div>

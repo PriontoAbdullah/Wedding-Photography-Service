@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "../../App.css";
 import serviceData from "../../data/serviceData.js";
+import useWindowWidth from "../Hooks/useWindowWidth";
 import SingleService from "./SingleService.js";
 
 // install Swiper modules
@@ -16,6 +17,9 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const Services = () => {
   const [service, SetService] = useState([]);
+
+  // get window width from custom hook
+  const onSmallScreen = useWindowWidth(1024);
 
   // Get banner data
   useEffect(() => {
@@ -60,7 +64,7 @@ const Services = () => {
       </div>
       <div>
         <Swiper
-          slidesPerView={"auto"}
+          slidesPerView={onSmallScreen ? "1" : "auto"}
           spaceBetween={30}
           centeredslide={"false"}
           pagination={{
