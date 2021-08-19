@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/swiper.min.css";
 import "../../App.css";
-import bannerData from "../../data/bannerData";
+import bannerData from "../../data/bannerData.js";
 import Hero from "./Hero";
 
 // install Swiper modules
@@ -35,7 +35,7 @@ const Banner = () => {
       >
         {data &&
           data.map((data) => (
-            <SwiperSlide key={data.id}>
+            <SwiperSlide key={data._id}>
               <Hero data={data} />
             </SwiperSlide>
           ))}

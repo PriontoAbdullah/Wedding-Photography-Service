@@ -35,6 +35,15 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid var(--scrollbarBG);
 }
 
+.scrolled {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: saturate(180%) blur(5px);
+  -webkit-backdrop-filter: saturate(180%) blur(5px);
+  transition: all 0.3s ease-in-out;
+  box-shadow: rgb(0 0 0 / 10%) 0px 3px 20px;
+  z-index: 899 !important;
+}
+
 /* For Swiper Slide Customization */
 
 .swiper-container {
@@ -67,4 +76,21 @@ body::-webkit-scrollbar-thumb {
 
 .swiper-pagination-bullet-active {
   background-color: #f44336 !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f44336 !important;
+  top: 83% !important;
+  background-color: #fff;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 18px !important;
+  font-weight: bold;
 }

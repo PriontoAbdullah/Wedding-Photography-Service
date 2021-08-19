@@ -6,8 +6,8 @@ const NavItems = () => {
       <li>
         <a
           href="/"
-          aria-label="Our product"
-          title="Our product"
+          aria-label="Our Services"
+          title="Our Services"
           className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700"
         >
           Services
@@ -26,11 +26,11 @@ const NavItems = () => {
       <li>
         <a
           href="/"
-          aria-label="Product pricing"
-          title="Product pricing"
+          aria-label="Gallery"
+          title="Gallery"
           className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700"
         >
-          Pricing
+          Gallery
         </a>
       </li>
       <li>

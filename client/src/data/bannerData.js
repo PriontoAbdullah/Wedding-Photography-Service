@@ -1,6 +1,6 @@
 const bannerData = [
   {
-    id: "b001",
+    _id: "b001",
     label: "Wedding",
     title: "A picture is worth a ",
     titleColored: "thousand words!",
@@ -9,7 +9,7 @@ const bannerData = [
     image: require("../images/banner/Couple-1.jpg").default,
   },
   {
-    id: "b002",
+    _id: "b002",
     label: "Anniversary",
     title: "Ready to take beyond ",
     titleColored: "your imagination!",
@@ -18,7 +18,7 @@ const bannerData = [
     image: require("../images/banner/Bride-1.jpg").default,
   },
   {
-    id: "b003",
+    _id: "b003",
     label: "Birthday",
     title: "Every moment of your life is ",
     titleColored: "beautiful!",
