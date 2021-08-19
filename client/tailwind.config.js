@@ -139,6 +139,10 @@ module.exports = {
       height: {
         "1/2": "50%",
       },
+      width: {
+        90: "22.5rem",
+        98: "28rem",
+      },
       scale: {
         30: ".3",
       },

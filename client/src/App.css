@@ -45,14 +45,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* For Swiper Slide Customization */
-
 .swiper-container {
   width: 100%;
   height: 100%;
 }
 
+/* Center slide text vertically */
 .swiper-slide {
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -74,6 +73,8 @@ body::-webkit-scrollbar-thumb {
   object-fit: cover;
 }
 
+/* Swiper Navigation & Pagination */
+
 .swiper-pagination-bullet-active {
   background-color: #f44336 !important;
 }
@@ -81,7 +82,7 @@ body::-webkit-scrollbar-thumb {
 .swiper-button-next,
 .swiper-button-prev {
   color: #f44336 !important;
-  top: 83% !important;
+  top: 82% !important;
   background-color: #fff;
   height: 30px;
   width: 30px;

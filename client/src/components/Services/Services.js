@@ -21,7 +21,7 @@ const Services = () => {
   // get window width from custom hook
   const onSmallScreen = useWindowWidth(1024);
 
-  // Get banner data
+  // Get service data
   useEffect(() => {
     SetService(serviceData);
   }, [service]);
@@ -73,7 +73,7 @@ const Services = () => {
           navigation={true}
           autoplay={true}
           key={service && service.length}
-          className="grid max-w-md gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto pb-12"
+          className="grid max-w-md gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-xl sm:mx-auto pb-12"
         >
           {service &&
             service.map((service) => (

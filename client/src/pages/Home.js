@@ -4,6 +4,7 @@ import Gallery from "../components/Gallery/Gallery";
 import Banner from "../components/Hero/Banner";
 import Nav from "../components/Nav/Nav";
 import Services from "../components/Services/Services";
+import Team from "../components/Team/Team";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Features />
       <Services />
       <Gallery />
+      <Team />
     </Fragment>
   );
 };
