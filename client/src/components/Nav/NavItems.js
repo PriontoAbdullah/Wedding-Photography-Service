@@ -8,7 +8,7 @@ const NavItems = () => {
           href="/"
           aria-label="Our product"
           title="Our product"
-          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-400"
+          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700"
         >
           Services
         </a>
@@ -18,7 +18,7 @@ const NavItems = () => {
           href="/"
           aria-label="Our product"
           title="Our product"
-          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-400"
+          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700"
         >
           Features
         </a>
@@ -28,7 +28,7 @@ const NavItems = () => {
           href="/"
           aria-label="Product pricing"
           title="Product pricing"
-          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-400"
+          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700"
         >
           Pricing
         </a>
@@ -38,7 +38,7 @@ const NavItems = () => {
           href="/"
           aria-label="About us"
           title="About us"
-          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-400"
+          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700"
         >
           About us
         </a>

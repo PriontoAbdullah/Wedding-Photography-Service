@@ -9,13 +9,13 @@ const Nav = () => {
       <div className="relative flex items-center justify-between">
         <a
           href="/"
-          aria-label="Company"
-          title="Company"
+          aria-label="Wedding Photography"
+          title="Wedding Photography"
           className="inline-flex items-center"
         >
           <img src={logo} alt="logo" className="object-contain w-10" />
           <span className="ml-2 text-base lg:text-xl font-display font-bold tracking-wide leading-snug text-gray-800 uppercase">
-            Wedding <span className="text-red-accent-400"> Photography</span>
+            Wedding <span className="text-red-accent-700"> Photography</span>
           </span>
         </a>
         <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -56,14 +56,14 @@ const Nav = () => {
             </svg>
           </button>
           {isMenuOpen && (
-            <div className="absolute top-0 left-0 w-full">
+            <div className="absolute top-0 left-0 w-full z-50">
               <div className="p-5 bg-white border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <a
                       href="/"
-                      aria-label="Company"
-                      title="Company"
+                      aria-label="Wedding Photography"
+                      title="Wedding Photography"
                       className="inline-flex items-center"
                     >
                       <img
@@ -73,7 +73,7 @@ const Nav = () => {
                       />
                       <span className="ml-2 text-base font-display font-bold tracking-wide leading-snug text-gray-800 uppercase">
                         Wedding
-                        <span className="text-red-accent-400">
+                        <span className="text-red-accent-700">
                           {" "}
                           Photography
                         </span>
