@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import Blog from "../components/Blogs/Blogs";
 import Features from "../components/Features/Features";
+import Footer from "../components/Footer/Footer";
 import Gallery from "../components/Gallery/Gallery";
 import Banner from "../components/Hero/Banner";
 import Nav from "../components/Nav/Nav";
@@ -10,6 +11,10 @@ import Team from "../components/Team/Team";
 import Testimonial from "../components/Testimonial/Testimonial";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Fragment>
       <Nav />
@@ -21,6 +26,7 @@ const Home = () => {
       <Testimonial />
       <Slogan />
       <Blog />
+      <Footer />
     </Fragment>
   );
 };

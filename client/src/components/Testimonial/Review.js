@@ -6,7 +6,7 @@ const Review = (props) => {
   return (
     <div className="container xl:max-w-7xl mx-auto px-4 lg:px-8 ">
       <div className="relative">
-        <div className="absolute top-0 left-10 text-9xl -mt-5 text-gray-200 opacity-75 font-serif">
+        <div className="absolute top-0 right-10 text-9xl -mt-5 text-gray-300 opacity-75 font-serif">
           “
         </div>
         <div className="relative text-center">
@@ -67,7 +67,7 @@ const Review = (props) => {
                   {name}
                 </p>
                 <div className="mx-auto w-10 h-1 my-1 text-lg rounded-lg bg-red-200"></div>
-                <p className="text-gray-600 font-medium">{location}</p>
+                <p className="text-gray-700 font-medium">{location}</p>
               </div>
             </footer>
           </blockquote>
