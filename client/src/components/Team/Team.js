@@ -5,7 +5,7 @@ import Members from "./Members";
 const Team = () => {
   const [teamMembers, SetTeamMembers] = useState([]);
 
-  // Get service data
+  // Get team members data
   useEffect(() => {
     SetTeamMembers(teamMembersData);
   }, [teamMembers]);
@@ -40,7 +40,7 @@ const Team = () => {
             <span className="relative text-red-accent-700">
               Our Professional Team
             </span>
-          </span>{" "}
+          </span>
           <br />
           Unique. Powerful. Creative.
         </h2>
@@ -49,7 +49,7 @@ const Team = () => {
           Cinematography services to make your dream come true.
         </p>
       </div>
-      <div className="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">
+      <div className="grid gap-10 mx-auto grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">
         {teamMembers &&
           teamMembers.map((members) => (
             <Members key={members._id} members={members} />

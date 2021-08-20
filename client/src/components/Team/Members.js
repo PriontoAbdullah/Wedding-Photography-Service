@@ -5,9 +5,9 @@ const Members = (props) => {
 
   return (
     <div>
-      <div className="relative pb-56 mb-4 rounded shadow lg:pb-64">
+      <div className="relative pb-56 mb-4 rounded shadow-none sm:shadow lg:pb-64">
         <img
-          className="absolute object-cover w-full h-full rounded"
+          className="absolute object-contain sm:object-cover w-max sm:w-full h-full rounded hover:opacity-95"
           src={image}
           alt="Person"
         />

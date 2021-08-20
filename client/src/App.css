@@ -7,6 +7,7 @@
 /* For Scroll bar Customization */
 
 html {
+  scroll-behavior: smooth;
   --scrollbarBG: #e8eaf6;
   --thumbBG: #d32f2f;
 }
@@ -35,6 +36,8 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid var(--scrollbarBG);
 }
 
+/* For Nav Bar Style*/
+
 .scrolled {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: saturate(180%) blur(5px);
@@ -45,12 +48,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* For Swiper Slide Customization */
+
 .swiper-container {
   width: 100%;
   height: 100%;
 }
 
 /* Center slide text vertically */
+
 .swiper-slide {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -94,4 +99,10 @@ body::-webkit-scrollbar-thumb {
 .swiper-button-next:after {
   font-size: 18px !important;
   font-weight: bold;
+}
+
+/* Background Image */
+
+.custom-img {
+  background-image: url("./images/gallery/background.jpg");
 }

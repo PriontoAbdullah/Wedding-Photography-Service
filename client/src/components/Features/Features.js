@@ -27,11 +27,10 @@ const Features = () => {
       <div className="flex flex-col mb-6 lg:flex-row md:mb-10">
         <div className="lg:w-1/2">
           <h2 className="max-w-md mb-6 font-display text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none xl:max-w-lg">
-            We <span className="text-deep-orange-accent-700">Love</span> What We
-            Do ! <br />
+            We <span className="text-red-accent-700">Love</span> What We Do !{" "}
+            <br />
             <span className="leading-loose ">
-              We Do What We{" "}
-              <span className="text-deep-orange-accent-700">Love</span> !
+              We Do What We <span className="text-red-accent-700">Love</span> !
             </span>
             <div className="h-1 ml-auto duration-300 origin-left transform bg-red-600 scale-x-30 group-hover:scale-x-100" />
           </h2>
