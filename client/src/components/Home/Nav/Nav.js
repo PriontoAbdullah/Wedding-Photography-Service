@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
-import { animateScroll as scroll, Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import logo from "../../../images/logo.png";
 import NavItems from "./NavItems";
 
 const Nav = () => {
-  // initial states
+  // for mobile view
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -13,16 +13,7 @@ const Nav = () => {
       <header className="top-0 w-full fixed scrolled">
         <div className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div className="relative flex items-center justify-between">
-            <Link
-              to="/"
-              spy={true}
-              smooth={true}
-              delay={100}
-              offset={0}
-              duration={500}
-              className="inline-flex items-center cursor-pointer"
-              onClick={() => scroll.scrollToTop()}
-            >
+            <Link to="/" className="inline-flex items-center cursor-pointer">
               <img src={logo} alt="logo" className="object-contain w-10" />
               <span className="ml-2 text-base lg:text-xl font-display font-bold tracking-wide leading-snug text-gray-800 uppercase">
                 Wedding{" "}
@@ -32,14 +23,9 @@ const Nav = () => {
             <ul className="flex items-center hidden space-x-8 lg:flex">
               <NavItems />
               <li>
-                <a
-                  href="/"
-                  className="signup-button"
-                  aria-label="Book Now"
-                  title="Book Now"
-                >
+                <Link to="/login" className="signup-button" title="Book Now">
                   Book Now
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="lg:hidden">
@@ -112,14 +98,14 @@ const Nav = () => {
                       <ul className="space-y-4">
                         <NavItems />
                         <li>
-                          <a
-                            href="/"
+                          <Link
+                            to="/login"
                             className="signup-button w-full"
                             aria-label="Book Now"
                             title="Book Now"
                           >
                             Book Now
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </nav>

@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.2.0",
+    "@tailwindcss/postcss7-compat": "^2.2.7",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.36",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-toast": "^2.1.0",
@@ -15,6 +18,7 @@
     "react-scripts": "4.0.3",
     "react-scroll": "^1.8.3",
     "swiper": "^6.8.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -41,9 +45,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.36",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
-  }
+  "devDependencies": {}
 }

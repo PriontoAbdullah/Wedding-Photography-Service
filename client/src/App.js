@@ -7,6 +7,7 @@ import LoadingSpinner from "./components/Home/LoadingSpinner/LoadingSpinner";
 // rapped with lazy loading
 const Home = lazy(() => import("./pages/Home"));
 const Authentication = lazy(() => import("./pages/Authentication"));
+const Error = lazy(() => import("./components/Home/Error/Error.js"));
 
 const App = () => {
   return (
@@ -19,6 +20,9 @@ const App = () => {
           </Route>
           <Route path="/login">
             <Authentication />
+          </Route>
+          <Route path="*">
+            <Error />
           </Route>
         </Switch>
       </Suspense>

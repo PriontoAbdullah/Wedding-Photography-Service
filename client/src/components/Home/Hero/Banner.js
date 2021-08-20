@@ -22,7 +22,7 @@ const Banner = () => {
   }, [data]);
 
   return (
-    <section>
+    <section id="home">
       <Swiper
         autoplay={{
           delay: 3000,
