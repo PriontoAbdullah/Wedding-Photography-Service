@@ -7,6 +7,7 @@ import LoadingSpinner from "./components/Home/LoadingSpinner/LoadingSpinner";
 // rapped with lazy loading
 const Home = lazy(() => import("./pages/Home"));
 const Services = lazy(() => import("./pages/ServicePage"));
+const Dashboard = lazy(() => import("./pages/DashboardPage.js"));
 const Authentication = lazy(() => import("./pages/Authentication"));
 const Error = lazy(() => import("./components/Home/Error/Error.js"));
 
@@ -34,6 +35,9 @@ const App = () => {
             </Route>
             <Route exact path="/login">
               <Authentication />
+            </Route>
+            <Route exact path="/dashboard">
+              <Dashboard />
             </Route>
             <Route path="*">
               <Error />

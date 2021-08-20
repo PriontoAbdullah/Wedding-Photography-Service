@@ -5,6 +5,10 @@ import bgFooter from "../../../images/background/header-white-bg.png";
 import logo from "../../../images/logo.png";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer
       className="min-h-auto bg-cover bg-no-repeat bg-center"
@@ -17,18 +21,17 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-10 mb-3 sm:grid-cols-3 lg:grid-cols-12 lg:gap-20">
             {/* Column 1 */}
             <div className="col-span-4">
-              <a
-                href="/"
-                aria-label="Wedding Photography"
-                title="Wedding Photography"
+              <Link
+                top="/"
                 className="inline-flex items-center"
+                onClick={scrollToTop}
               >
                 <img src={logo} alt="logo" className="object-contain w-10" />
                 <span className="ml-2 text-base lg:text-xl font-display font-bold tracking-wide leading-snug text-gray-800 uppercase">
                   Wedding{" "}
                   <span className="text-red-accent-700"> Photography</span>
                 </span>
-              </a>
+              </Link>
               <div className="my-2 lg:max-w-sm font-body">
                 <p className="font-body text-sm text-gray-800">
                   We absolutely love weddings. It’s why we chosen to specialize
