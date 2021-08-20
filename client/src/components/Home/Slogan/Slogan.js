@@ -8,7 +8,7 @@ const Slogan = () => {
         <h2 className="font-display font-semibold text-4xl sm:text-5xl text-gray-50 text-center leading-loose">
           Get Amazed With The Best Cinematographers In Bangladesh
         </h2>
-        <p className="p-5 pt-8 font-body font-medium text-3xl sm:text-4xl text-center text-gray-100 leading-loose">
+        <p className="p-5 pt-8 font-body font-medium text-3xl sm:text-4xl text-center text-gray-100 leading-10">
           We provide high quality and cost effective Photography and
           Cinematography services.
         </p>

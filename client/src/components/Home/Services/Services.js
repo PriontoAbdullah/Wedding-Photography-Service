@@ -29,7 +29,7 @@ const Services = () => {
 
   return (
     <section
-      className="px-4 pt-4 pb-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+      className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
       id="services"
     >
       <Fade>
@@ -80,12 +80,11 @@ const Services = () => {
             key={service && service.length}
             className="grid max-w-md gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-xl sm:mx-auto pb-12"
           >
-            {service &&
-              service.map((service) => (
-                <SwiperSlide key={service._id}>
-                  <SingleService service={service} />
-                </SwiperSlide>
-              ))}
+            {service?.map((service) => (
+              <SwiperSlide key={service._id}>
+                <SingleService service={service} />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </Fade>

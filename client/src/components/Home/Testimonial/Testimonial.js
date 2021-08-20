@@ -53,12 +53,11 @@ const Testimonial = () => {
             navigation={true}
             key={testimonials.length}
           >
-            {testimonials &&
-              testimonials.map((review) => (
-                <SwiperSlide key={review._id}>
-                  <Review review={review} />
-                </SwiperSlide>
-              ))}
+            {testimonials?.map((reviews) => (
+              <SwiperSlide key={reviews._id}>
+                <Review reviews={reviews} />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </Fade>
       </div>

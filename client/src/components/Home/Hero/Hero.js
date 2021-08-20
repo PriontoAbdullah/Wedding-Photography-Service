@@ -1,7 +1,7 @@
 import React from "react";
 
-const Hero = (props) => {
-  const { label, title, titleColored, description, image } = props.data;
+const Hero = ({ data }) => {
+  const { label, title, titleColored, description, image } = data;
 
   return (
     <div className="min-w-full relative flex flex-col-reverse py-16 h-full lg:h-screen lg:pt-0 lg:flex-col lg:pb-0">

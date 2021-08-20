@@ -1,7 +1,7 @@
 import React from "react";
 
-const Members = (props) => {
-  const { name, designation, image } = props.members;
+const Members = ({ members }) => {
+  const { name, designation, image } = members;
 
   return (
     <div>

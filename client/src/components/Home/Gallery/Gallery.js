@@ -14,7 +14,7 @@ import image6 from "../../../images/gallery/Details-17.jpg";
 const Gallery = () => {
   return (
     <section
-      className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+      className="px-4 pb-10 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
       id="gallery"
     >
       <Fade top>

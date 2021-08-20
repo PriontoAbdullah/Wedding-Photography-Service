@@ -55,10 +55,9 @@ const Team = () => {
           </p>
         </div>
         <div className="grid gap-10 mx-auto grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">
-          {teamMembers &&
-            teamMembers.map((members) => (
-              <Members key={members._id} members={members} />
-            ))}
+          {teamMembers?.map((members) => (
+            <Members key={members._id} members={members} />
+          ))}
         </div>
       </Fade>
     </section>

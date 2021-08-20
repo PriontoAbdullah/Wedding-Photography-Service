@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../../App";
 
-const SingleService = (props) => {
-  const { title, description, price, image } = props.service;
+const SingleService = ({ service }) => {
+  const { _id, title, description, price, image } = service;
+  const { setSelectedService } = useContext(UserContext);
 
   return (
-    <div className="flex flex-col transition duration-300 w-90 bg-white rounded shadow-4xl hover:shadow-lg">
+    <div className="flex flex-col transition duration-300 w-90 bg-white rounded shadow-4xl hover:shadow-lg mb-16">
       <div className="relative w-full h-52">
         <img
           src={image}
@@ -21,21 +24,21 @@ const SingleService = (props) => {
             {description.substr(0, 175)}
             {"..."}
           </p>
-          <strong className="flex items-end mb-6 text-2xl font-display leading-none text-red-500 lg:text-3xl ">
+          <strong className="flex items-end mb-6 text-2xl font-display leading-none text-red-500 lg:text-3xl">
             ৳ {price} <span className="text-sm"> / day </span>
           </strong>
         </div>
-        <div className="flex justify-around mb-4">
+        <div className="flex justify-around ">
           <button
             type="button"
             className="inline-flex items-center justify-center h-10 px-5 font-display font-bold text-base tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-accent-700 focus:shadow-outline focus:outline-none"
           >
             Buy Now
           </button>
-          <a
-            href="/"
-            aria-label=""
+          <Link
+            to={`/services/${_id}`}
             className="inline-flex items-center font-medium transition-colors duration-200 text-red-accent-700 hover:text-red-500"
+            onClick={() => setSelectedService(service)}
           >
             View more
             <svg
@@ -45,7 +48,7 @@ const SingleService = (props) => {
             >
               <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
