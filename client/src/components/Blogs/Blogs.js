@@ -35,39 +35,41 @@ const Blog = () => {
         {blogs &&
           blogs.map((blog) => (
             <div
-              className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm"
+              className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-3xl hover:shadow-xl"
               key={blog._id}
             >
               <img
                 src={blog.image}
-                className="object-cover w-full h-64"
+                className="object-cover w-full h-64 hover:opacity-90"
                 alt=""
               />
               <div className="p-5 border border-t-0">
                 <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
                   <a
                     href="/"
-                    className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
+                    className="font-body transition-colors duration-200 text-red-400 hover:text-red-accent-700"
                     aria-label="Category"
                     title={blog.label}
                   >
                     {blog.label}
                   </a>
-                  <span className="text-gray-600">{blog.date}</span>
+                  <span className="font-body text-gray-600">{blog.date}</span>
                 </p>
                 <a
                   href="/"
                   aria-label="Category"
                   title={blog.title}
-                  className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
+                  className="inline-block mb-3 text-2xl font-display font-semibold leading-5 transition-colors duration-200 text-red-accent-700 hover:text-red-900"
                 >
                   {blog.title}
                 </a>
-                <p className="mb-2 text-gray-700">{blog.description}</p>
+                <p className="mb-2 font-body text-base text-gray-700">
+                  {blog.description}
+                </p>
                 <a
                   href="/"
                   aria-label=""
-                  className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                  className="inline-flex items-center font-body font-semibold transition-colors duration-200 text-red-600 hover:text-red-700"
                 >
                   Learn more
                 </a>
