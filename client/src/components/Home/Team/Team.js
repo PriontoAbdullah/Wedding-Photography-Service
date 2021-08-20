@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
-import teamMembersData from "../../data/teamData.js";
+import teamMembersData from "../../../data/teamData.js";
 import Members from "./Members";
 
 const Team = () => {
@@ -12,7 +12,10 @@ const Team = () => {
   }, [teamMembers]);
 
   return (
-    <section className="px-4 pt-6 pb-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <section
+      className="px-4 pt-6 pb-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+      id="about"
+    >
       <Fade bottom>
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <h2 className="max-w-xl mb-6 font-display text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl md:mx-auto">

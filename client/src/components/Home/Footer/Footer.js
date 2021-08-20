@@ -1,8 +1,8 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-scroll";
-import bgFooter from "../../images/background/header-white-bg.png";
-import logo from "../../images/logo.png";
+import bgFooter from "../../../images/background/header-white-bg.png";
+import logo from "../../../images/logo.png";
 
 const Footer = () => {
   return (

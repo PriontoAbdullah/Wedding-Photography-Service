@@ -8,9 +8,9 @@ import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/swiper.min.css";
-import "../../App.css";
-import testimonialData from "../../data/testimonialData.js";
-import bgTestimonial from "../../images/background/biography-bg.png";
+import "../../../App.css";
+import testimonialData from "../../../data/testimonialData.js";
+import bgTestimonial from "../../../images/background/biography-bg.png";
 import Review from "./Review.js";
 
 // install Swiper modules
@@ -26,7 +26,7 @@ const Testimonial = () => {
 
   return (
     <section
-      className="min-h-auto bg-cover bg-no-repeat bg-center opacity-95"
+      className="min-h-auto bg-cover bg-no-repeat bg-center"
       style={{
         backgroundImage: `url(${bgTestimonial})`,
       }}

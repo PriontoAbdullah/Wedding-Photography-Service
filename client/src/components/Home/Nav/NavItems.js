@@ -1,0 +1,67 @@
+import React, { Fragment } from "react";
+import { Link } from "react-scroll";
+
+const NavItems = () => {
+  return (
+    <Fragment>
+      <li>
+        <Link
+          to="services"
+          spy={true}
+          smooth={true}
+          delay={100}
+          offset={0}
+          duration={500}
+          activeClass="text-red-accent-700"
+          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700 cursor-pointer"
+        >
+          Services
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="features"
+          spy={true}
+          smooth={true}
+          delay={100}
+          offset={0}
+          duration={500}
+          activeClass="text-red-accent-700"
+          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700 cursor-pointer"
+        >
+          Features
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="gallery"
+          spy={true}
+          smooth={true}
+          delay={100}
+          offset={0}
+          duration={500}
+          activeClass="text-red-accent-700"
+          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700 cursor-pointer"
+        >
+          Gallery
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="about"
+          spy={true}
+          smooth={true}
+          delay={100}
+          offset={0}
+          duration={500}
+          activeClass="text-red-accent-700"
+          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700 cursor-pointer"
+        >
+          About us
+        </Link>
+      </li>
+    </Fragment>
+  );
+};
+
+export default NavItems;

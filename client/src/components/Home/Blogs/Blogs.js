@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slide from "react-reveal/Slide";
-import blogData from "../../data/blogData.js";
+import blogData from "../../../data/blogData.js";
 
 const Blog = () => {
   const [blogs, SetBlogs] = useState([]);

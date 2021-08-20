@@ -6,8 +6,8 @@ import SwiperCore, { Autoplay, Pagination } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/swiper.min.css";
-import "../../App.css";
-import bannerData from "../../data/bannerData.js";
+import "../../../App.css";
+import bannerData from "../../../data/bannerData.js";
 import Hero from "./Hero";
 
 // install Swiper modules

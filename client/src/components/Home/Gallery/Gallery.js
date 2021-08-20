@@ -1,19 +1,22 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
-import image1 from "../../images/gallery/Bride-9.jpg";
-import image4 from "../../images/gallery/Couple-1.jpg";
-import image5 from "../../images/gallery/Couple-10.jpg";
-import image8 from "../../images/gallery/Couple-14.jpg";
-import image3 from "../../images/gallery/Couple-15.jpg";
-import image7 from "../../images/gallery/Couple-18.jpg";
-import image2 from "../../images/gallery/Couple-19.jpg";
-import image10 from "../../images/gallery/Couple-8.jpg";
-import image9 from "../../images/gallery/Couple-9.jpg";
-import image6 from "../../images/gallery/Details-17.jpg";
+import image1 from "../../../images/gallery/Bride-9.jpg";
+import image4 from "../../../images/gallery/Couple-1.jpg";
+import image5 from "../../../images/gallery/Couple-10.jpg";
+import image8 from "../../../images/gallery/Couple-14.jpg";
+import image3 from "../../../images/gallery/Couple-15.jpg";
+import image7 from "../../../images/gallery/Couple-18.jpg";
+import image2 from "../../../images/gallery/Couple-19.jpg";
+import image10 from "../../../images/gallery/Couple-8.jpg";
+import image9 from "../../../images/gallery/Couple-9.jpg";
+import image6 from "../../../images/gallery/Details-17.jpg";
 
 const Gallery = () => {
   return (
-    <section className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <section
+      className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+      id="gallery"
+    >
       <Fade top>
         <div className="flex flex-col mb-6 lg:flex-row md:mb-10">
           <div className="lg:w-1/2">

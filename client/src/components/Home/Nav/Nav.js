@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
-import logo from "../../images/logo.png";
+import { animateScroll as scroll, Link } from "react-scroll";
+import logo from "../../../images/logo.png";
 import NavItems from "./NavItems";
 
 const Nav = () => {
@@ -12,18 +13,22 @@ const Nav = () => {
       <header className="top-0 w-full fixed scrolled">
         <div className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div className="relative flex items-center justify-between">
-            <a
-              href="/"
-              aria-label="Wedding Photography"
-              title="Wedding Photography"
-              className="inline-flex items-center"
+            <Link
+              to="/"
+              spy={true}
+              smooth={true}
+              delay={100}
+              offset={0}
+              duration={500}
+              className="inline-flex items-center cursor-pointer"
+              onClick={() => scroll.scrollToTop()}
             >
               <img src={logo} alt="logo" className="object-contain w-10" />
               <span className="ml-2 text-base lg:text-xl font-display font-bold tracking-wide leading-snug text-gray-800 uppercase">
                 Wedding{" "}
                 <span className="text-red-accent-700"> Photography</span>
               </span>
-            </a>
+            </Link>
             <ul className="flex items-center hidden space-x-8 lg:flex">
               <NavItems />
               <li>
