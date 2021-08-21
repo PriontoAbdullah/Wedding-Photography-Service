@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import BookService from "./UserPannel/BookService";
+// import BookService from "./UserPannel/BookService";
+import MyOrder from "./UserPannel/MyOrder";
 // import DashboardFooter from "./Welcome/DashboardFooter";
 // import Statistics from "./Welcome/Statistics";
 // import WelcomeBanner from "./Welcome/WelcomeBanner";
@@ -27,7 +28,8 @@ const Dashboard = () => {
             <DashboardFooter /> */}
 
             {/* Book Service */}
-            <BookService />
+            {/* <BookService /> */}
+            <MyOrder />
           </div>
         </main>
       </div>
