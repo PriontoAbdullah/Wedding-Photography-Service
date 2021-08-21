@@ -13,7 +13,7 @@
 - Secured with Custom Authentication with JWT Token
 - Private Routing with assessable Admin Role & User Role
 
-### Front-end Technology :
+## Front-end Technology :
 
 - **React**
 - **Tailwind CSS**
@@ -21,7 +21,7 @@
 - **React-Router-Dom**
 - **React-Hook_Form**
 
-### Back-end Technology :
+## Back-end Technology :
 
 - **Node JS**
 - **Express JS**
@@ -32,5 +32,5 @@
 <hr/>
 
 <a  href="https://wedding-photography-bd.web.app">
-<img  width="100%"  height="100%"  src="https://i.imgur.com/IQnnpgv.jpg"/>
+<img  width="100%"  height="100%"  src="https://i.imgur.com/hvm0PdQ.jpg"/>
 </a>

@@ -1,37 +1,90 @@
+import axios from "axios";
 import React from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useHistory } from "react-router-dom";
 
 const AddService = () => {
+  const { register, handleSubmit } = useForm();
+  const history = useHistory();
+
+  const onSubmit = async (data) => {
+    if (!data.image[0]) {
+      return toast.error("Please upload an image!");
+    }
+
+    const loading = toast.loading("Uploading...Please wait!");
+    const imageData = new FormData();
+    imageData.set("key", "08d5da1c81cc5c52012f0b930505d031");
+    imageData.append("image", data.image[0]);
+
+    let imageURL = "";
+    try {
+      const res = await axios.post("https://api.imgbb.com/1/upload", imageData);
+      imageURL = res.data.data.display_url;
+    } catch (error) {
+      toast.dismiss(loading);
+      return toast.error("Failed to upload the image!");
+    }
+
+    const serviceInfo = {
+      title: data.title,
+      description: data.description,
+      price: data.price,
+      image: imageURL,
+      seniorPhotographer: data.seniorPhotographer,
+      seniorCinematographers: data.seniorCinematographers,
+      assistantPhotographer: data.assistantPhotographer,
+      outdoorPhotoshoot: data.outdoorPhotoshoot,
+    };
+
+    axios
+      .post("http://localhost:5000/addService", serviceInfo)
+      .then((res) => {
+        toast.dismiss(loading);
+        toast.success("Service has been Successfully Uploaded");
+        history.replace({ pathname: "/dashboard/profile" });
+      })
+      .catch((error) => {
+        toast.dismiss(loading);
+        toast.error(error);
+      });
+  };
+
   return (
     <section>
       <div className="container items-center px-5  lg:px-20">
-        <form className="flex flex-col w-full shadow-3xl pt-6 mb-8 px-8 mx-auto mt-4 mb-8 transition duration-500 ease-in-out transform bg-white border rounded-lg lg:w-3/4 ">
+        <form
+          className="flex flex-col w-full shadow-3xl pt-6 mb-8 px-8 mx-auto mt-4 mb-8 transition duration-500 ease-in-out transform bg-white border rounded-lg lg:w-3/4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <h2 className="text-2xl font-display mb-2 font-semibold text-center text-red-accent-700 dark:text-white">
             Add a New Service
           </h2>
 
           <div className="relative pt-4">
-            <label for="name" className="text-base leading-7 text-gray-700">
+            <label for="title" className="text-base leading-7 text-gray-700">
               Package Title
             </label>
             <input
-              type="email"
-              id="email"
-              name="email"
+              type="text"
+              id="title"
+              {...register("title", { required: true })}
               placeholder="Title"
-              className="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-red-50 focus:border-red-500 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+              className="service-input"
             />
           </div>
 
           <div className="relative mt-4">
-            <label for="name" className="text-base leading-7 text-gray-700">
+            <label for="price" className="text-base leading-7 text-gray-700">
               Package Price
             </label>
             <input
               type="number"
               id="price"
-              name="price"
+              {...register("price", { required: true })}
               placeholder="Price"
-              className="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-red-50 focus:border-red-500 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+              className="service-input"
             />
           </div>
 
@@ -44,10 +97,10 @@ const AddService = () => {
                 Description
               </label>
               <textarea
-                className="w-full h-32 px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-red-50 focus:border-red-500 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent apearance-none autoexpand"
+                className="service-text-area"
                 id="description"
+                {...register("description", { required: true })}
                 type="text"
-                name="description"
                 placeholder="Package Details..."
                 required=""
               ></textarea>
@@ -58,15 +111,15 @@ const AddService = () => {
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
               <label
                 className="text-base leading-7 text-gray-700"
-                for="grid-title"
+                for="grid-title1"
               >
                 Senior Photographers
               </label>
               <input
-                className="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-red-50 focus:border-red-500 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
-                id="grid-title"
+                className="service-input"
+                id="grid-title1"
                 type="number"
-                name="title"
+                {...register("seniorPhotographer", { required: true })}
                 placeholder="3 Person"
               />
             </div>
@@ -74,15 +127,15 @@ const AddService = () => {
             <div className="w-full px-3 mb-2 md:w-1/2 md:mb-0">
               <label
                 className="text-base leading-7 text-gray-700"
-                for="grid-url"
+                for="grid-title2"
               >
                 Senior Cinematographers
               </label>
               <input
-                className="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-red-50 focus:border-red-500 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
-                id="grid-url"
+                className="service-input"
+                id="grid-title2"
                 type="number"
-                name="url"
+                {...register("seniorCinematographers", { required: true })}
                 placeholder="2 Person"
               />
             </div>
@@ -92,15 +145,15 @@ const AddService = () => {
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
               <label
                 className="text-base leading-7 text-gray-700"
-                for="grid-title"
+                for="grid-title3"
               >
                 Assistant Photographers
               </label>
               <input
-                className="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-red-50 focus:border-red-500 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
-                id="grid-title"
+                className="service-input"
+                id="grid-title3"
                 type="number"
-                name="title"
+                {...register("assistantPhotographer", { required: true })}
                 placeholder="5 Person"
               />
             </div>
@@ -108,20 +161,17 @@ const AddService = () => {
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
               <label
                 className="text-base leading-7 text-gray-700"
-                for="grid-url"
+                for="grid-title4"
               >
                 Outdoor Photoshoot
               </label>
-              <div className=" relative ">
-                <select
-                  className="block w-full mt-3 text-gray-500 py-2 px-3 border border-gray-300 bg-red-50 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
-                  name="animals"
-                >
-                  <option value="">Select an Option</option>
-                  <option value="dog">Yes</option>
-                  <option value="cat">No</option>
-                </select>
-              </div>
+              <input
+                className="service-input"
+                id="grid-title4"
+                type="text"
+                {...register("outdoorPhotoshoot", { required: true })}
+                placeholder="Yes"
+              />
             </div>
           </div>
 
@@ -148,15 +198,16 @@ const AddService = () => {
                   </svg>
                   <div className="flex text-sm text-gray-600">
                     <label
-                      htmlFor="file-upload"
+                      htmlFor="upload"
                       className="relative cursor-pointer bg-white rounded-md font-medium text-red-accent-700 hover:text-red-900 bg-red-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                     >
                       <span>Upload a Picture</span>
                       <input
-                        id="file-upload"
-                        name="file-upload"
+                        id="upload"
                         type="file"
-                        className="sr-only"
+                        {...register("image")}
+                        placeholder="Upload photo"
+                        className="hidden"
                       />
                     </label>
                     <p className="pl-1">or drag and drop</p>

@@ -29,12 +29,14 @@ const SingleService = ({ service }) => {
           </strong>
         </div>
         <div className="flex justify-around ">
-          <button
-            type="button"
-            className="inline-flex items-center justify-center h-10 px-5 font-display font-bold text-base tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-accent-700 focus:shadow-outline focus:outline-none"
-          >
-            Buy Now
-          </button>
+          <Link to="/dashboard/bookService">
+            <button
+              type="button"
+              className="inline-flex items-center justify-center h-10 px-5 font-display font-bold text-base tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-accent-700 focus:shadow-outline focus:outline-none"
+            >
+              Buy Now
+            </button>
+          </Link>
           <Link
             to={`/services/${_id}`}
             className="inline-flex items-center font-medium transition-colors duration-200 text-red-accent-700 hover:text-red-500"

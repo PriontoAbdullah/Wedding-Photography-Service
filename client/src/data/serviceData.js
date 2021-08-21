@@ -19,7 +19,7 @@ const serviceData = [
     _id: "s003",
     title: "Premium",
     description:
-      "We, at ‘What a Beginning’, are you ideal wedding photographers, based in Bangladesh. We are a professional photography team with an off-the-cuff yet contemporary approach at capturing all of your wedding’s most amazing moments. We make sure that we capture the best of the most genuine moments from your big day so that the charm of your happiness reflects.",
+      "We wedding photography are professional ideal wedding photographers, based in Bangladesh. We are a professional photography team with an off-the-cuff yet contemporary approach at capturing all of your wedding’s most amazing moments. We make sure that we capture the best of the most genuine moments from your big day so that the charm of your happiness reflects.",
     price: "11000",
     image: require("../images/services/Entry-7.jpg").default,
   },

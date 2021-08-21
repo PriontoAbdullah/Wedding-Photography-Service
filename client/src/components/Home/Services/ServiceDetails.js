@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../../App";
 
 const ServiceDetails = () => {
@@ -51,7 +52,14 @@ const ServiceDetails = () => {
                   ৳ {selectedService?.price}{" "}
                   <span className="text-sm"> / day </span>
                 </span>
-                <button className="signup-button flex ml-auto">Buy Now</button>
+
+                <Link
+                  to="/dashboard/bookService"
+                  className="signup-button flex ml-auto"
+                >
+                  Buy Now
+                </Link>
+
                 <button className="rounded-full w-10 h-10 bg-red-100 p-0 border-0 inline-flex items-center justify-center text-red-accent-700 ml-4">
                   <svg
                     fill="currentColor"

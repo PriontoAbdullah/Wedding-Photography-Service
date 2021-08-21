@@ -24,15 +24,15 @@ export const UserContext = createContext();
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState(getDecodedUser());
   const [selectedService, setSelectedService] = useState([]);
-  const [adminLoading, setAdminLoading] = useState(true);
+  const [adminLoading, setAdminLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (loggedInUser?.email === "test@test.com") {
       setIsAdmin(loggedInUser);
-      setAdminLoading(false);
+      setAdminLoading(true);
     }
-  }, [loggedInUser]);
+  }, [loggedInUser?.email]);
 
   return (
     <UserContext.Provider

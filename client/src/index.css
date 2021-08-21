@@ -33,6 +33,14 @@
   @apply font-body inline-flex w-full px-20 sm:px-8 font-semibold transition duration-500 ease-in-out transform bg-white border rounded-lg border-gray-300 text-red-accent-700 hover:bg-red-accent-700 hover:text-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2;
 }
 
+.service-input {
+  @apply w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-red-50 focus:border-red-500 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent;
+}
+
+.service-text-area {
+  @apply w-full h-32 px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-red-50 focus:border-red-500 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent;
+}
+
 .react-datepicker__input-container input {
   @apply rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-600 shadow-sm text-base focus:border-transparent;
 }
