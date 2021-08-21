@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import DashboardFooter from "./Welcome/DashboardFooter";
-import Statistics from "./Welcome/Statistics";
-import WelcomeBanner from "./Welcome/WelcomeBanner";
+import BookService from "./UserPannel/BookService";
+// import DashboardFooter from "./Welcome/DashboardFooter";
+// import Statistics from "./Welcome/Statistics";
+// import WelcomeBanner from "./Welcome/WelcomeBanner";
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -21,9 +22,12 @@ const Dashboard = () => {
         <main>
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
             {/* Dashboard */}
-            <WelcomeBanner />
+            {/* <WelcomeBanner />
             <Statistics />
-            <DashboardFooter />
+            <DashboardFooter /> */}
+
+            {/* Book Service */}
+            <BookService />
           </div>
         </main>
       </div>

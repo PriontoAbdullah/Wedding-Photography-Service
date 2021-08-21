@@ -87,7 +87,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         <nav className="flex-grow pb-4 pr-4 md:block md:pb-0 md:overflow-y-auto">
           <ul className="font-body font-semibold text-2xl">
             <li>
-              <a className="sidebar-item" href="/">
+              <NavLink
+                className="sidebar-item"
+                to="/dashboard"
+                activeClassName="border-l-4 border-red-600 text-red-accent-700"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class=" icon icon-tabler icon-tabler-credit-card"
@@ -107,10 +111,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   <line x1="11" y1="15" x2="13" y2="15"></line>
                 </svg>
                 <span class="ml-4"> Dashboard</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a className="sidebar-item" href="/">
+              <NavLink
+                className="sidebar-item"
+                to="/dashboard/book-service"
+                activeClassName="border-l-4 border-red-600 text-red-accent-700"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-artboard"
@@ -134,11 +142,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   <line x1="8" y1="20" x2="8" y2="21"></line>
                   <line x1="16" y1="20" x2="16" y2="21"></line>
                 </svg>
-                <span class="ml-4">Services</span>
-              </a>
+                <span class="ml-4">Book Services</span>
+              </NavLink>
             </li>
             <li>
-              <a className="sidebar-item" href="/">
+              <NavLink
+                className="sidebar-item"
+                to="/dashboard/my-orders"
+                activeClassName="border-l-4 border-red-600 text-red-accent-700"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-inbox"
@@ -156,10 +168,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   <path d="M4 13h3l3 3h4l3 -3h3"></path>
                 </svg>
                 <span class="ml-4">My Orders</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a className="sidebar-item" href="/">
+              <NavLink
+                className="sidebar-item"
+                to="/dashboard/contacts"
+                activeClassName="border-l-4 border-red-600 text-red-accent-700"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-users"
@@ -179,7 +195,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                 </svg>
                 <span class="ml-4">Contacts</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>

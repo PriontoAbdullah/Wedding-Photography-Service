@@ -3,7 +3,7 @@ import React from "react";
 const Statistics = () => {
   return (
     <section className="p-4 my-6 md:p-8 bg-red-100 text-gray-800">
-      <h2 className="font-display text-3xl mb-6 text-red-700 text-center font-semibold">
+      <h2 className="font-display text-2xl sm:text-3xl mb-6 text-red-700 text-center font-semibold">
         We have Unique, Powerful, Creative Team
       </h2>
       <div className="container grid grid-cols-1 gap-6 m-4 mx-auto md:m-0 md:grid-cols-2 xl:grid-cols-3 font-body">
