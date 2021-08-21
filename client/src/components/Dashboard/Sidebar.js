@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../../App";
 import logo from "../../images/logo.png";
 import user from "../../images/user.png";
@@ -7,6 +7,9 @@ import user from "../../images/user.png";
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const trigger = useRef(null);
   const sidebar = useRef(null);
+
+  const { isAdmin } = useContext(UserContext);
+  const { panel } = useParams();
 
   const {
     loggedInUser: { name, email, photo },
@@ -42,7 +45,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       <div
         id="sidebar"
         ref={sidebar}
-        className={`absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 flex-shrink-0 bg-red-100 transition-transform duration-200 ease-in-out ${
+        className={`absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 flex-shrink-0 bg-red-50 transition-transform duration-200 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "-translate-x-64"
         }`}
       >
@@ -66,7 +69,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             </svg>
           </button>
           {/* Logo */}
-          <NavLink exact to="/" className="block">
+          <Link exact to="/" className="block">
             <div href="/" className="inline-flex items-center mt-6 mx-6">
               <img src={logo} alt="logo" className="object-contain w-10" />
               <span className="ml-2 text-base font-display font-bold tracking-wide leading-snug text-gray-800 uppercase">
@@ -74,7 +77,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 <span className="text-red-accent-700"> Photography</span>
               </span>
             </div>
-          </NavLink>
+          </Link>
         </div>
 
         {/* Links */}
@@ -93,119 +96,253 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           </p>
         </div>
         <nav className="flex-grow pb-4 pr-4 md:block md:pb-0 md:overflow-y-auto">
-          <ul className="font-body font-semibold text-2xl">
-            <li>
-              <NavLink
-                className="sidebar-item"
-                to="/dashboard"
-                activeClassName="border-l-4 border-red-600 text-red-accent-700"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class=" icon icon-tabler icon-tabler-credit-card"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+          {isAdmin ? (
+            // Adman Panel
+            <ul className="font-body font-semibold text-2xl">
+              <li>
+                <Link
+                  className={
+                    panel === "profile" ? "sidebar-item-active" : "sidebar-item"
+                  }
+                  to="/dashboard/profile"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="3" y="5" width="18" height="14" rx="3"></rect>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                  <line x1="7" y1="15" x2="7.01" y2="15"></line>
-                  <line x1="11" y1="15" x2="13" y2="15"></line>
-                </svg>
-                <span class="ml-4"> Dashboard</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="sidebar-item"
-                to="/dashboard/book-service"
-                activeClassName="border-l-4 border-red-600 text-red-accent-700"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-artboard"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class=" icon icon-tabler icon-tabler-credit-card"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                    <line x1="7" y1="15" x2="7.01" y2="15"></line>
+                    <line x1="11" y1="15" x2="13" y2="15"></line>
+                  </svg>
+                  <span class="ml-4">Dashboard</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={
+                    panel === "allOrders"
+                      ? "sidebar-item-active"
+                      : "sidebar-item"
+                  }
+                  to="/dashboard/allOrders"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="8" y="8" width="8" height="8" rx="1"></rect>
-                  <line x1="3" y1="8" x2="4" y2="8"></line>
-                  <line x1="3" y1="16" x2="4" y2="16"></line>
-                  <line x1="8" y1="3" x2="8" y2="4"></line>
-                  <line x1="16" y1="3" x2="16" y2="4"></line>
-                  <line x1="20" y1="8" x2="21" y2="8"></line>
-                  <line x1="20" y1="16" x2="21" y2="16"></line>
-                  <line x1="8" y1="20" x2="8" y2="21"></line>
-                  <line x1="16" y1="20" x2="16" y2="21"></line>
-                </svg>
-                <span class="ml-4">Book Services</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="sidebar-item"
-                to="/dashboard/my-orders"
-                activeClassName="border-l-4 border-red-600 text-red-accent-700"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-inbox"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-artboard"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <rect x="8" y="8" width="8" height="8" rx="1"></rect>
+                    <line x1="3" y1="8" x2="4" y2="8"></line>
+                    <line x1="3" y1="16" x2="4" y2="16"></line>
+                    <line x1="8" y1="3" x2="8" y2="4"></line>
+                    <line x1="16" y1="3" x2="16" y2="4"></line>
+                    <line x1="20" y1="8" x2="21" y2="8"></line>
+                    <line x1="20" y1="16" x2="21" y2="16"></line>
+                    <line x1="8" y1="20" x2="8" y2="21"></line>
+                    <line x1="16" y1="20" x2="16" y2="21"></line>
+                  </svg>
+                  <span class="ml-4">All Orders</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={
+                    panel === "addService"
+                      ? "sidebar-item-active"
+                      : "sidebar-item"
+                  }
+                  to="/dashboard/addService"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                  <path d="M4 13h3l3 3h4l3 -3h3"></path>
-                </svg>
-                <span class="ml-4">My Orders</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="sidebar-item"
-                to="/dashboard/contacts"
-                activeClassName="border-l-4 border-red-600 text-red-accent-700"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-users"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-inbox"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                    <path d="M4 13h3l3 3h4l3 -3h3"></path>
+                  </svg>
+                  <span class="ml-4">Add Service</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={
+                    panel === "messages"
+                      ? "sidebar-item-active"
+                      : "sidebar-item"
+                  }
+                  to="/dashboard/messages"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
-                </svg>
-                <span class="ml-4">Contact Us</span>
-              </NavLink>
-            </li>
-          </ul>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-users"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                  </svg>
+                  <span class="ml-4">Messages</span>
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            // User Panel
+            <ul className="font-body font-semibold text-2xl">
+              <li>
+                <Link
+                  className={
+                    panel === "profile" ? "sidebar-item-active" : "sidebar-item"
+                  }
+                  to="/dashboard/profile"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class=" icon icon-tabler icon-tabler-credit-card"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                    <line x1="7" y1="15" x2="7.01" y2="15"></line>
+                    <line x1="11" y1="15" x2="13" y2="15"></line>
+                  </svg>
+                  <span class="ml-4">Dashboard</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={
+                    panel === "bookService"
+                      ? "sidebar-item-active"
+                      : "sidebar-item"
+                  }
+                  to="/dashboard/bookService"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-artboard"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <rect x="8" y="8" width="8" height="8" rx="1"></rect>
+                    <line x1="3" y1="8" x2="4" y2="8"></line>
+                    <line x1="3" y1="16" x2="4" y2="16"></line>
+                    <line x1="8" y1="3" x2="8" y2="4"></line>
+                    <line x1="16" y1="3" x2="16" y2="4"></line>
+                    <line x1="20" y1="8" x2="21" y2="8"></line>
+                    <line x1="20" y1="16" x2="21" y2="16"></line>
+                    <line x1="8" y1="20" x2="8" y2="21"></line>
+                    <line x1="16" y1="20" x2="16" y2="21"></line>
+                  </svg>
+                  <span class="ml-4">Book Services</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={
+                    panel === "myOrder" ? "sidebar-item-active" : "sidebar-item"
+                  }
+                  to="/dashboard/myOrder"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-inbox"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                    <path d="M4 13h3l3 3h4l3 -3h3"></path>
+                  </svg>
+                  <span class="ml-4">My Orders</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={
+                    panel === "contact" ? "sidebar-item-active" : "sidebar-item"
+                  }
+                  to="/dashboard/contact"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-users"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                  </svg>
+                  <span class="ml-4">Contact Us</span>
+                </Link>
+              </li>
+            </ul>
+          )}
         </nav>
       </div>
     </div>

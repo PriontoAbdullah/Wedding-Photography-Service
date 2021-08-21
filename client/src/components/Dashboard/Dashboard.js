@@ -1,18 +1,43 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { UserContext } from "../../App";
+import AddService from "./AdminPannel/AddService";
+import AllOrders from "./AdminPannel/AllOrders";
+import DashboardLoader from "./DashboardLoader";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-// import AllOrders from "./AdminPannel/AllOrders";
-// import ContactUs from "./UserPannel/ContactUs";
-// import BookService from "./UserPannel/BookService";
-// import MyOrder from "./UserPannel/MyOrder";
-import DashboardFooter from "./Welcome/DashboardFooter";
-import Statistics from "./Welcome/Statistics";
-import WelcomeBanner from "./Welcome/WelcomeBanner";
+import BookService from "./UserPannel/BookService";
+import ContactUs from "./UserPannel/ContactUs";
+import MyOrder from "./UserPannel/MyOrder";
+import Profile from "./Welcome/Profile";
 
-// import AddService from "./AdminPannel/AddService";
-
-const Dashboard = () => {
+const Dashboard = ({ adminLoading }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const {
+    loggedInUser: { email },
+    isAdmin,
+  } = useContext(UserContext);
+
+  const { panel } = useParams();
+  const history = useHistory();
+
+  // User Pannel
+  if (
+    !adminLoading &&
+    !isAdmin &&
+    (panel === "allOrders" || panel === "addService")
+  ) {
+    history.replace({ pathname: "/dashboard/profile" });
+  }
+  // Admin Pannel
+  if (
+    !adminLoading &&
+    isAdmin &&
+    (panel === "bookService" || panel === "myOrder" || panel === "contact")
+  ) {
+    history.replace({ pathname: "/dashboard/profile" });
+  }
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -26,20 +51,24 @@ const Dashboard = () => {
 
         <main>
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-            {/* Dashboard */}
-            <WelcomeBanner />
-            <Statistics />
-            <DashboardFooter />
-
-            {/* User Panel */}
-            {/* Book Service */}
-            {/* <BookService /> */}
-            {/* <MyOrder /> */}
-            {/* <ContactUs /> */}
-
-            {/* Admin Panel */}
-            {/* <AddService /> */}
-            {/* <AllOrders /> */}
+            {/* Dashboard Content */}
+            {adminLoading ? (
+              <DashboardLoader />
+            ) : panel === "profile" ? (
+              <Profile />
+            ) : panel === "allOrders" && isAdmin ? (
+              // Admin Pannel
+              <AllOrders />
+            ) : panel === "addService" && isAdmin ? (
+              <AddService />
+            ) : // User Pannel
+            panel === "bookService" ? (
+              <BookService />
+            ) : panel === "myOrder" ? (
+              <MyOrder />
+            ) : panel === "contact" ? (
+              <ContactUs />
+            ) : null}
           </div>
         </main>
       </div>

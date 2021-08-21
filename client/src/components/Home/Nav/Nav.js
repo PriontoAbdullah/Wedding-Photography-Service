@@ -51,7 +51,7 @@ const Nav = () => {
             <li>
               {isSignedIn ? (
                 <Link
-                  to="/dashboard"
+                  to="/dashboard/profile"
                   className="signup-button"
                   title="Book Now"
                 >
@@ -131,14 +131,23 @@ const Nav = () => {
                     <ul className="space-y-4">
                       <NavItems />
                       <li>
-                        <Link
-                          to="/login"
-                          className="signup-button w-full"
-                          aria-label="Book Now"
-                          title="Book Now"
-                        >
-                          Book Now
-                        </Link>
+                        {isSignedIn ? (
+                          <Link
+                            to="/dashboard/profile"
+                            className="signup-button  w-ful"
+                            title="Book Now"
+                          >
+                            Dashboard
+                          </Link>
+                        ) : (
+                          <Link
+                            to="/login"
+                            className="signup-button  w-ful"
+                            title="Book Now"
+                          >
+                            Book Now
+                          </Link>
+                        )}
                       </li>
                     </ul>
                   </nav>

@@ -7,7 +7,7 @@ const BookService = () => {
 
   return (
     <section className="h-full pb-8 bg-opacity-50">
-      <form className="container max-w-2xl mx-auto shadow-md md:w-3/4">
+      <form className="container max-w-2xl mx-auto shadow-3xl md:w-3/4">
         <div className="p-4 bg-gray-100 border-t-2 border-red-400 rounded-lg bg-opacity-5">
           <div className="max-w-sm mx-auto md:w-full md:mx-0">
             <div className="inline-flex items-center space-x-4">

@@ -2,12 +2,12 @@ import React from "react";
 
 const Statistics = () => {
   return (
-    <section className="p-4 my-6 md:p-8 bg-red-100 text-gray-800">
+    <section className="p-4 my-6 md:p-8 bg-red-50 text-gray-800">
       <h2 className="font-display text-2xl sm:text-3xl mb-6 text-red-700 text-center font-semibold">
         We have Unique, Powerful, Creative Team
       </h2>
       <div className="container grid grid-cols-1 gap-6 m-4 mx-auto md:m-0 md:grid-cols-2 xl:grid-cols-3 font-body">
-        <div className="flex overflow-hidden rounded-lg bg-red-50 text-gray-800">
+        <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Projects</p>
           </div>
         </div>
-        <div className="flex overflow-hidden rounded-lg bg-red-50 text-gray-800">
+        <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Customers</p>
           </div>
         </div>
-        <div className="flex overflow-hidden rounded-lg bg-red-50 text-gray-800">
+        <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Awards</p>
           </div>
         </div>
-        <div className="flex overflow-hidden rounded-lg bg-red-50 text-gray-800">
+        <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Support</p>
           </div>
         </div>
-        <div className="flex overflow-hidden rounded-lg bg-red-50 text-gray-800">
+        <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +93,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Successful</p>
           </div>
         </div>
-        <div className="flex overflow-hidden rounded-lg bg-red-50 text-gray-800">
+        <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
