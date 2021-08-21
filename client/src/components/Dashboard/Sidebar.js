@@ -1,11 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../../App";
 import logo from "../../images/logo.png";
 import user from "../../images/user.png";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const trigger = useRef(null);
   const sidebar = useRef(null);
+
+  const {
+    loggedInUser: { name, email, photo },
+  } = useContext(UserContext);
 
   // close on click outside
   useEffect(() => {
@@ -42,7 +47,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         }`}
       >
         {/* Sidebar header */}
-        <div className="flex justify-between mb-10 pr-3 sm:px-2">
+        <div className="flex justify-between mb-4 pr-3 sm:px-2">
           {/* Close button */}
           <button
             ref={trigger}
@@ -78,11 +83,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           <img
             alt="testimonial"
             className="inline-block object-cover object-center w-20 h-20 mb-4 rounded-full"
-            src={user}
+            src={photo || user}
           />
           <h2 className="font-display text-2xl font-bold tracking-wide text-red-accent-700 title-font">
-            Hero Alom
+            {name}
           </h2>
+          <p className="font-body text-sm font-semibold tracking-wide text-gray-700 title-font">
+            {email}
+          </p>
         </div>
         <nav className="flex-grow pb-4 pr-4 md:block md:pb-0 md:overflow-y-auto">
           <ul className="font-body font-semibold text-2xl">

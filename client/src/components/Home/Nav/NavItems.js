@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-scroll";
 
-const NavItems = () => {
+const NavItems = ({ isSticky }) => {
   return (
     <Fragment>
       <li>
@@ -13,7 +13,9 @@ const NavItems = () => {
           offset={0}
           duration={500}
           activeClass="text-red-accent-700"
-          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700 cursor-pointer"
+          className={`font-display font-bold text-lg tracking-wide transition-colors duration-200 hover:text-red-accent-700 cursor-pointer ${
+            !isSticky ? "text-red-500 " : "text-gray-700"
+          }`}
         >
           Services
         </Link>
@@ -27,7 +29,9 @@ const NavItems = () => {
           offset={0}
           duration={500}
           activeClass="text-red-accent-700"
-          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700 cursor-pointer"
+          className={`font-display font-bold text-lg tracking-wide transition-colors duration-200 hover:text-red-accent-700 cursor-pointer ${
+            !isSticky ? "text-red-500 " : "text-gray-700"
+          }`}
         >
           Features
         </Link>
@@ -41,7 +45,9 @@ const NavItems = () => {
           offset={0}
           duration={500}
           activeClass="text-red-accent-700"
-          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700 cursor-pointer"
+          className={`font-display font-bold text-lg tracking-wide transition-colors duration-200 hover:text-red-accent-700 cursor-pointer ${
+            !isSticky ? "text-red-500 " : "text-gray-700"
+          }`}
         >
           Gallery
         </Link>
@@ -55,9 +61,11 @@ const NavItems = () => {
           offset={0}
           duration={500}
           activeClass="text-red-accent-700"
-          className="font-display font-bold text-lg tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-accent-700 cursor-pointer"
+          className={`font-display font-bold text-lg tracking-wide transition-colors duration-200 hover:text-red-accent-700 cursor-pointer ${
+            !isSticky ? "text-red-500 " : "text-gray-700"
+          }`}
         >
-          About us
+          About
         </Link>
       </li>
     </Fragment>

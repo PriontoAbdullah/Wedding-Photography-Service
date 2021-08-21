@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import AllOrders from "./AdminPannel/AllOrders";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-
+// import AllOrders from "./AdminPannel/AllOrders";
 // import ContactUs from "./UserPannel/ContactUs";
 // import BookService from "./UserPannel/BookService";
 // import MyOrder from "./UserPannel/MyOrder";
-// import DashboardFooter from "./Welcome/DashboardFooter";
-// import Statistics from "./Welcome/Statistics";
-// import WelcomeBanner from "./Welcome/WelcomeBanner";
+import DashboardFooter from "./Welcome/DashboardFooter";
+import Statistics from "./Welcome/Statistics";
+import WelcomeBanner from "./Welcome/WelcomeBanner";
+
 // import AddService from "./AdminPannel/AddService";
 
 const Dashboard = () => {
@@ -27,9 +27,9 @@ const Dashboard = () => {
         <main>
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
             {/* Dashboard */}
-            {/* <WelcomeBanner />
+            <WelcomeBanner />
             <Statistics />
-            <DashboardFooter /> */}
+            <DashboardFooter />
 
             {/* User Panel */}
             {/* Book Service */}
@@ -39,7 +39,7 @@ const Dashboard = () => {
 
             {/* Admin Panel */}
             {/* <AddService /> */}
-            <AllOrders />
+            {/* <AllOrders /> */}
           </div>
         </main>
       </div>

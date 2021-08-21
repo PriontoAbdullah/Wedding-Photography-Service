@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
+import { UserContext } from "../../App";
 import UserAvatar from "../../images/user.png";
+import {
+  handleSignOut,
+  initializeLoginFramework,
+} from "../Authentication/LoginManager";
 
 const UserMenu = () => {
+  const {
+    loggedInUser: { photo },
+    setLoggedInUser,
+  } = useContext(UserContext);
+
+  const signOut = () => {
+    initializeLoginFramework();
+
+    handleSignOut().then((res) => {
+      setLoggedInUser(res);
+      toast.error("Logged Out!");
+    });
+  };
+
   return (
     <div className="relative inline-flex">
       <button
         className="inline-flex justify-center items-center group"
         aria-haspopup="true"
+        onClick={signOut}
       >
         <img
           className="w-10 h-10 rounded-full"
-          src={UserAvatar}
+          src={photo || UserAvatar}
           width="50"
           height="50"
           alt="User"

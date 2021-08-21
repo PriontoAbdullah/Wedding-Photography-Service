@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../../App";
 
 const WelcomeBanner = () => {
+  const {
+    loggedInUser: { name },
+  } = useContext(UserContext);
+
   return (
     <div className="relative bg-red-100 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
       {/* Background illustration */}
@@ -69,7 +74,7 @@ const WelcomeBanner = () => {
       {/* Content */}
       <div className="relative">
         <h1 className="font-display text-2xl md:text-3xl text-red-700 font-bold mb-1">
-          Hello, Hero Alom 👋
+          Hello, {name} 👋
         </h1>
         <p className="font-body text-gray-800">
           We provide quality and cost effective Photography and Cinematography

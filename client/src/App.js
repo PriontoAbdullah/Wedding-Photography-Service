@@ -1,7 +1,15 @@
-import { createContext, lazy, Suspense, useState } from "react";
+import React, {
+  createContext,
+  lazy,
+  Suspense,
+  useEffect,
+  useState,
+} from "react";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import { getDecodedUser } from "./components/Authentication/LoginManager";
+import PrivateRoute from "./components/Authentication/PrivateRoute";
 import LoadingSpinner from "./components/Home/LoadingSpinner/LoadingSpinner";
 
 // rapped with lazy loading
@@ -14,17 +22,33 @@ const Error = lazy(() => import("./components/Home/Error/Error.js"));
 export const UserContext = createContext();
 
 const App = () => {
+  const [loggedInUser, setLoggedInUser] = useState(getDecodedUser());
   const [selectedService, setSelectedService] = useState([]);
+  const [adminLoading, setAdminLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    if (loggedInUser?.email === "test@test.com") {
+      setIsAdmin(loggedInUser);
+      setAdminLoading(false);
+    }
+  }, [loggedInUser]);
 
   return (
     <UserContext.Provider
       value={{
+        loggedInUser,
+        setLoggedInUser,
+        isAdmin,
         selectedService,
         setSelectedService,
       }}
     >
+      {/* Toast Notification */}
       <Router>
         <Toaster />
+
+        {/* Loading Animation */}
         <Suspense fallback={<LoadingSpinner />}>
           <Switch>
             <Route exact path="/">
@@ -36,9 +60,9 @@ const App = () => {
             <Route exact path="/login">
               <Authentication />
             </Route>
-            <Route exact path="/dashboard">
-              <Dashboard />
-            </Route>
+            <PrivateRoute exact path="/dashboard/:panel">
+              <Dashboard adminLoading={adminLoading} />
+            </PrivateRoute>
             <Route path="*">
               <Error />
             </Route>

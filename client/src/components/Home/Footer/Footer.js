@@ -22,7 +22,7 @@ const Footer = () => {
             {/* Column 1 */}
             <div className="col-span-4">
               <Link
-                top="/"
+                to="/"
                 className="inline-flex items-center"
                 onClick={scrollToTop}
               >
