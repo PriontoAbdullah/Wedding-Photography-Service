@@ -3,22 +3,22 @@ import pagkageImage from "../../../images/services/Bride-4.jpg";
 
 const MyOrder = () => {
   return (
-    <section class="container items-center px-3 py-2 lg:px-32">
-      <div class="p-4 bg-white shadow-3xl max-w-2xl rounded-xl flex justify-start dark:bg-gray-800 md:flex-row flex-col gap-2">
-        <div class="relative pl-0 md:pl-1">
+    <section className="container items-center px-3 py-2 lg:px-32">
+      <div className="p-4 bg-white shadow-3xl max-w-2xl rounded-xl flex justify-start dark:bg-gray-800 md:flex-row flex-col gap-2">
+        <div className="relative pl-0 md:pl-1">
           <img
             src={pagkageImage}
-            class="rounded-xl w-full max-h-56 md:w-72 md:max-h-44"
+            className="rounded-xl w-full max-h-56 md:w-72 md:max-h-44"
             alt="package"
           />
-          <span class="font-body font-medium px-2 py-1 text-gray-50 bg-red-200 text-xs rounded absolute right-2 bottom-2 bg-opacity-50">
+          <span className="font-body font-medium px-2 py-1 text-gray-50 bg-red-200 text-xs rounded absolute right-2 bottom-2 bg-opacity-50">
             Economy
           </span>
         </div>
-        <div class="flex flex-col justify-between pl-0 sm:pl-4">
-          <div class="flex items-start justify-between text-red-accent-700 dark:text-white my-2 md:m-0">
-            <p class="font-display text-2xl leading-5">Economy Package</p>
-            <button class="ml-24 text-red-400 hover:text-red-700">
+        <div className="flex flex-col justify-between pl-0 sm:pl-4">
+          <div className="flex items-start justify-between text-red-accent-700 dark:text-white my-2 md:m-0">
+            <p className="font-display text-2xl leading-5">Economy Package</p>
+            <button className="ml-24 text-red-400 hover:text-red-700">
               <svg
                 width="25"
                 height="25"
@@ -31,35 +31,35 @@ const MyOrder = () => {
             </button>
           </div>
 
-          <div class="flex items-center justify-between mt-3 space-x-12 font-body">
-            <span class="px-2 py-1 flex items-center font-semibold text-lg rounded-md text-yellow-600 bg-yellow-100">
+          <div className="flex items-center justify-between mt-3 space-x-12 font-body">
+            <span className="px-2 py-1 flex items-center font-semibold text-lg rounded-md text-yellow-600 bg-yellow-100">
               Pending
             </span>
-            <span class="px-2 py-1 flex items-center font-semibold text-base rounded-md text-gray-600 border border-gray-600 bg-white">
+            <span className="px-2 py-1 flex items-center font-semibold text-base rounded-md text-gray-600 border border-gray-600 bg-white">
               Weeding
             </span>
           </div>
 
-          <div class="mt-4 sm:mt-2">
-            <div class="flex text-sm text-gray-500 items-center justify-between">
+          <div className="mt-4 sm:mt-2">
+            <div className="flex text-sm text-gray-500 items-center justify-between">
               <p>Task progress</p>
               <p>33%</p>
             </div>
-            <div class="w-full h-2 bg-gray-300 rounded-full mt-1 mb-4">
-              <div class="w-1/3 h-full text-center text-xs text-white bg-yellow-400 rounded-full"></div>
+            <div className="w-full h-2 bg-gray-300 rounded-full mt-1 mb-4">
+              <div className="w-1/3 h-full text-center text-xs text-white bg-yellow-400 rounded-full"></div>
             </div>
           </div>
 
-          <div class="flex items-center rounded-lg justify-between p-2 bg-red-50 font-body">
-            <div class="flex items-start w-full justify-between">
-              <p class="flex-grow w-full text-2xl text-gray-700 font-medium">
-                <span class="text-gray-700 font-light text-md">৳ </span>
+          <div className="flex items-center rounded-lg justify-between p-2 bg-red-50 font-body">
+            <div className="flex items-start w-full justify-between">
+              <p className="flex-grow w-full text-2xl text-gray-700 font-medium">
+                <span className="text-gray-700 font-light text-md">৳ </span>
                 7,000
-                <span class="text-sm font-light text-gray-700 font-medium">
+                <span className="text-sm font-light text-gray-700 font-medium">
                   /day
                 </span>
               </p>
-              <span class="px-3 py-1 flex-none text-sm rounded-full text-red-800 border border-red-300">
+              <span className="px-3 py-1 flex-none text-sm rounded-full text-red-800 border border-red-300">
                 Date: 23/07/2021
               </span>
             </div>
