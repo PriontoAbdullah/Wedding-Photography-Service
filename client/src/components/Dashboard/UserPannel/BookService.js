@@ -24,7 +24,7 @@ const BookService = () => {
             <div className="max-w-sm mx-auto md:w-2/3">
               <div className=" relative ">
                 <select
-                  className="block w-96 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                  className="block w-96 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
                   name="animals"
                 >
                   <option value="">Select a Package</option>
