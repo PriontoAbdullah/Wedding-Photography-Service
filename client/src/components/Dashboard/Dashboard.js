@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import AddService from "./AdminPannel/AddService";
+import AllOrders from "./AdminPannel/AllOrders";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+
 // import ContactUs from "./UserPannel/ContactUs";
 // import BookService from "./UserPannel/BookService";
 // import MyOrder from "./UserPannel/MyOrder";
 // import DashboardFooter from "./Welcome/DashboardFooter";
 // import Statistics from "./Welcome/Statistics";
 // import WelcomeBanner from "./Welcome/WelcomeBanner";
+// import AddService from "./AdminPannel/AddService";
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -36,7 +38,8 @@ const Dashboard = () => {
             {/* <ContactUs /> */}
 
             {/* Admin Panel */}
-            <AddService />
+            {/* <AddService /> */}
+            <AllOrders />
           </div>
         </main>
       </div>
