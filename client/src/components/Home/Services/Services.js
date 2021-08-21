@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import Fade from "react-reveal/Fade";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
@@ -9,14 +11,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/swiper.min.css";
 import "../../../App.css";
-import serviceData from "../../../data/serviceData.js";
 import useWindowWidth from "../Hooks/useWindowWidth";
+import PreLoader from "../LoadingSpinner/PreLoader";
 import SingleService from "./SingleService.js";
 
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const Services = () => {
+  const [loading, setLoading] = useState(true);
   const [service, SetService] = useState([]);
 
   // get window width from custom hook
@@ -24,8 +27,14 @@ const Services = () => {
 
   // Get service data
   useEffect(() => {
-    SetService(serviceData);
-  }, [service]);
+    axios
+      .get("http://localhost:5000/services")
+      .then((res) => {
+        SetService(res.data);
+        setLoading(false);
+      })
+      .catch((error) => toast.error(error.message));
+  }, []);
 
   return (
     <section
@@ -80,11 +89,15 @@ const Services = () => {
             key={service && service.length}
             className="grid max-w-md gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-xl sm:mx-auto pb-12"
           >
-            {service?.map((service) => (
-              <SwiperSlide key={service._id}>
-                <SingleService service={service} />
-              </SwiperSlide>
-            ))}
+            {loading ? (
+              <PreLoader />
+            ) : (
+              service?.map((service) => (
+                <SwiperSlide key={service._id}>
+                  <SingleService service={service} />
+                </SwiperSlide>
+              ))
+            )}
           </Swiper>
         </div>
       </Fade>

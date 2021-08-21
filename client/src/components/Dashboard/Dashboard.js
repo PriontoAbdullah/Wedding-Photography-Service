@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../App";
 import AddService from "./AdminPannel/AddService";
 import AllOrders from "./AdminPannel/AllOrders";
+import MakeAdmin from "./AdminPannel/MakeAdmin";
 import DashboardLoader from "./DashboardLoader";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -61,6 +62,8 @@ const Dashboard = ({ adminLoading }) => {
               <AllOrders />
             ) : panel === "addService" && isAdmin ? (
               <AddService />
+            ) : panel === "makeAdmin" && isAdmin ? (
+              <MakeAdmin />
             ) : // User Pannel
             panel === "bookService" ? (
               <BookService />

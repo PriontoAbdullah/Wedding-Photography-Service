@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, {
   createContext,
   lazy,
@@ -5,7 +6,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { getDecodedUser } from "./components/Authentication/LoginManager";
@@ -24,14 +25,17 @@ export const UserContext = createContext();
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState(getDecodedUser());
   const [selectedService, setSelectedService] = useState([]);
-  const [adminLoading, setAdminLoading] = useState(false);
+  const [adminLoading, setAdminLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    if (loggedInUser?.email === "test@test.com") {
-      setIsAdmin(loggedInUser);
-      setAdminLoading(true);
-    }
+    axios
+      .get(`http://localhost:5000/isAdmin?email=${loggedInUser?.email}`)
+      .then((res) => {
+        setIsAdmin(res.data);
+        setAdminLoading(false);
+      })
+      .catch((error) => toast.error(error.message));
   }, [loggedInUser?.email]);
 
   return (

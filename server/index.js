@@ -14,13 +14,16 @@ app.get("/", (req, res) => {
   res.send("Welcome to Weeding Photography");
 });
 
+// Database Connection
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.xw1ix.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
 client.connect((err) => {
+  // initialize all connections
   const serviceCollection = client
     .db(`${process.env.DB_NAME}`)
     .collection("services");
@@ -30,6 +33,11 @@ client.connect((err) => {
   const orderCollection = client
     .db(`${process.env.DB_NAME}`)
     .collection("orders");
+  const adminsCollection = client
+    .db(`${process.env.DB_NAME}`)
+    .collection("admins");
+
+  // Get Method Controllers
 
   app.get("/services", (req, res) => {
     serviceCollection.find({}).toArray((err, docs) => res.send(docs));
@@ -47,8 +55,22 @@ client.connect((err) => {
     });
   });
 
+  app.get("/isAdmin", (req, res) => {
+    adminsCollection
+      .find({ email: req.query.email })
+      .toArray((err, docs) => res.send(!!docs.length));
+  });
+
+  // Post Method Controllers
+
   app.post("/addService", (req, res) => {
     serviceCollection
+      .insertOne(req.body)
+      .then((result) => res.send(!!result.insertedCount));
+  });
+
+  app.post("/addAdmin", (req, res) => {
+    adminsCollection
       .insertOne(req.body)
       .then((result) => res.send(!!result.insertedCount));
   });

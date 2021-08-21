@@ -219,11 +219,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <Link
                   className={
-                    panel === "messages"
+                    panel === "makeAdmin"
                       ? "sidebar-item-active"
                       : "sidebar-item"
                   }
-                  to="/dashboard/messages"
+                  to="/dashboard/makeAdmin"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +243,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                     <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                   </svg>
-                  <span class="ml-4">Messages</span>
+                  <span class="ml-4">Make Admin</span>
                 </Link>
               </li>
             </ul>

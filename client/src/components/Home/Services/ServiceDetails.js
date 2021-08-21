@@ -33,19 +33,27 @@ const ServiceDetails = () => {
               </p>
               <div className="flex border-t border-gray-200 py-2">
                 <span className="text-gray-700">Senior Photographers</span>
-                <span className="ml-auto text-gray-800">3 Person</span>
+                <span className="ml-auto text-gray-800">
+                  {selectedService?.seniorPhotographer} Person
+                </span>
               </div>
               <div className="flex border-t border-gray-200 py-2">
                 <span className="text-gray-700">Senior Cinematographers</span>
-                <span className="ml-auto text-gray-800">2 Person</span>
+                <span className="ml-auto text-gray-800">
+                  {selectedService?.seniorCinematographers} Person
+                </span>
               </div>
               <div className="flex border-t border-gray-200 py-2">
                 <span className="text-gray-700">Assistant Photographers</span>
-                <span className="ml-auto text-gray-800">5 Person</span>
+                <span className="ml-auto text-gray-800">
+                  {selectedService?.assistantPhotographer} Person
+                </span>
               </div>
               <div className="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span className="text-gray-700">Outdoor Photoshoot</span>
-                <span className="ml-auto text-gray-800">Yes</span>
+                <span className="ml-auto text-gray-800">
+                  {selectedService?.outdoorPhotoshoot}
+                </span>
               </div>
               <div className="flex">
                 <span className="flex items-end mb-6 text-2xl font-display font-bold leading-none text-gray-900 lg:text-3xl">
