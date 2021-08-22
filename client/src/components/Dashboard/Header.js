@@ -29,7 +29,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
                 <rect x="4" y="17" width="16" height="2" />
               </svg>
             </button>
-            <h1 className="ml-2 sm:ml-0 font-display font-semibold text-lg sm:text-xl text-gray-900">
+            <h1 className="ml-2 sm:ml-0 font-display font-semibold text-base sm:text-xl text-gray-900">
               {panel === "profile"
                 ? "Dashboard"
                 : panel === "allOrders"

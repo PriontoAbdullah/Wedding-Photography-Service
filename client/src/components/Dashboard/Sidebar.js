@@ -3,8 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../../App";
 import logo from "../../images/logo.png";
 import user from "../../images/user.png";
+import SidebarLoader from './Loader/SidebarLoader.js';
 
-const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
   const trigger = useRef(null);
   const sidebar = useRef(null);
 
@@ -88,14 +89,16 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             className="inline-block object-cover object-center w-20 h-20 mb-4 rounded-full"
             src={photo || user}
           />
-          <h2 className="font-display text-2xl font-bold tracking-wide text-red-accent-700 title-font">
+          <h2 className="font-display text-2xl font-bold tracking-wide text-red-accent-700 title-font text-center">
             {name}
           </h2>
-          <p className="font-body text-sm font-semibold tracking-wide text-gray-700 title-font">
+          <p className="font-body text-sm font-semibold tracking-wide text-gray-700 title-font text-center">
             {email}
           </p>
         </div>
+        {adminLoading ? <SidebarLoader /> :
         <nav className="flex-grow pb-4 pr-4 md:block md:pb-0 md:overflow-y-auto">
+        
           {isAdmin ? (
             // Adman Panel
             <ul className="font-body font-semibold text-2xl">
@@ -370,6 +373,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             </ul>
           )}
         </nav>
+        }
       </div>
     </div>
   );

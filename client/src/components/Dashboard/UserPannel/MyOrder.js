@@ -83,21 +83,45 @@ const MyOrder = () => {
                       </div>
 
                       <div className="flex items-center justify-between mt-3 space-x-12 font-body">
-                        <span className="px-2 py-1 flex items-center font-semibold text-lg rounded-md text-yellow-600 bg-yellow-100">
+                        <span
+                          className={`px-2 py-1 flex items-center font-semibold text-lg rounded-md ${
+                            order.status === "Pending"
+                              ? "text-yellow-600 bg-yellow-200"
+                              : order.status === "Confirmed"
+                              ? "text-indigo-600 bg-indigo-200"
+                              : order.status === "Completed"
+                              ? "text-green-600 bg-green-200"
+                              : order.status === "Cancelled"
+                              ? "text-red-600 bg-red-200"
+                              : "text-blue-600 bg-blue-200"
+                          }`}
+                        >
                           {order.status}
                         </span>
-                        <span className="px-2 py-1 flex items-center font-semibold text-base rounded-md text-gray-600 border border-gray-600 bg-white">
+                        <span className="px-2 py-1 flex items-center font-semibold text-base rounded-md text-gray-500 border border-gray-500 bg-white">
                           Weeding
                         </span>
                       </div>
 
                       <div className="mt-4 sm:mt-2">
-                        <div className="flex text-sm text-gray-500 items-center justify-between">
+                        <div className="flex text-sm text-gray-600 items-center justify-between">
                           <p>Task progress</p>
                           <p>{order.progress}</p>
                         </div>
                         <div className="w-full h-2 bg-gray-300 rounded-full mt-1 mb-4">
-                          <div className="w-1/3 h-full text-center text-xs text-white bg-yellow-400 rounded-full"></div>
+                          <div
+                            className={`h-full text-center text-xs text-white rounded-full ${
+                              order.status === "Pending"
+                                ? "bg-yellow-400 w-1/4"
+                                : order.status === "Confirmed"
+                                ? "bg-indigo-400 w-2/4"
+                                : order.status === "Completed"
+                                ? "bg-green-400 w-full"
+                                : order.status === "Cancelled"
+                                ? "bg-red-400 w-full"
+                                : "bg-blue-400 w-3/4"
+                            }`}
+                          ></div>
                         </div>
                       </div>
 
@@ -126,7 +150,7 @@ const MyOrder = () => {
               );
             })
           ) : (
-            <div className="px-6 py-6 mx-auto text-center  items-center px-1 max-w-sm border-rounded ">
+            <div className="px-6 py-6 mx-auto text-center items-center px-1 max-w-sm border-rounded">
               <div className="shadow-lg rounded-2xl w-64 bg-white">
                 <img
                   alt="cover"

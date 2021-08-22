@@ -4,27 +4,32 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useHistory } from "react-router-dom";
 
-const AddService = () => {
+const AddService = ({ editService, restrictPermission, setEditService }) => {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
 
   const onSubmit = async (data) => {
-    if (!data.image[0]) {
+    if (!editService && !data.image[0]) {
       return toast.error("Please upload an image!");
     }
 
-    const loading = toast.loading("Uploading...Please wait!");
-    const imageData = new FormData();
-    imageData.set("key", "08d5da1c81cc5c52012f0b930505d031");
-    imageData.append("image", data.image[0]);
+    const loading = toast.loading("Uploading... Please wait!");
+    let imageURL = editService ? editService.image : "";
 
-    let imageURL = "";
-    try {
-      const res = await axios.post("https://api.imgbb.com/1/upload", imageData);
-      imageURL = res.data.data.display_url;
-    } catch (error) {
-      toast.dismiss(loading);
-      return toast.error("Failed to upload the image!");
+    if (!editService || (editService && data.image[0])) {
+      const imageData = new FormData();
+      imageData.set("key", "08d5da1c81cc5c52012f0b930505d031");
+      imageData.append("image", data.image[0]);
+      try {
+        const res = await axios.post(
+          "https://api.imgbb.com/1/upload",
+          imageData
+        );
+        imageURL = res.data.data.display_url;
+      } catch (error) {
+        toast.dismiss(loading);
+        return toast.error("Failed to upload the image!");
+      }
     }
 
     const serviceInfo = {
@@ -37,6 +42,48 @@ const AddService = () => {
       assistantPhotographer: data.assistantPhotographer,
       outdoorPhotoshoot: data.outdoorPhotoshoot,
     };
+
+    if (editService) {
+      if (restrictPermission(editService._id)) {
+        toast.dismiss(loading);
+        setEditService({});
+        return toast.error(
+          "Permission restriction! As a test-admin, you don't have permission to delete 4 core services. But you can delete your added services."
+        );
+      }
+
+      if (
+        data.title === editService.title &&
+        data.price === editService.price &&
+        imageURL === editService.image &&
+        data.description === editService.description &&
+        data.seniorPhotographer === editService.seniorPhotographer &&
+        data.seniorCinematographers === editService.seniorCinematographers &&
+        data.assistantPhotographer === editService.assistantPhotographer &&
+        data.outdoorPhotoshoot === editService.outdoorPhotoshoot
+      ) {
+        toast.dismiss(loading);
+        setEditService({});
+        return toast.error("You haven't changed anything!");
+      }
+
+      axios
+        .patch(
+          `https://wedding-photography-71.herokuapp.com/update/${editService._id}`,
+          serviceInfo
+        )
+        .then((res) => {
+          toast.dismiss(loading);
+          setEditService(serviceInfo);
+          toast.success("Service has been Successfully updated!");
+        })
+        .catch((error) => {
+          toast.dismiss(loading);
+          setEditService({});
+          toast.error(error);
+        });
+      return;
+    }
 
     axios
       .post(
@@ -62,7 +109,7 @@ const AddService = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <h2 className="text-2xl font-display mb-2 font-semibold text-center text-red-accent-700 dark:text-white">
-            Add a New Service
+            {editService ? "Edit the Service" : "Add a New Service"}
           </h2>
 
           <div className="relative pt-4">
@@ -73,6 +120,7 @@ const AddService = () => {
               type="text"
               id="title"
               {...register("title", { required: true })}
+              defaultValue={editService ? editService.title : null}
               placeholder="Title"
               className="service-input"
             />
@@ -86,6 +134,7 @@ const AddService = () => {
               type="number"
               id="price"
               {...register("price", { required: true })}
+              defaultValue={editService ? editService.price : null}
               placeholder="Price"
               className="service-input"
             />
@@ -103,6 +152,7 @@ const AddService = () => {
                 className="service-text-area"
                 id="description"
                 {...register("description", { required: true })}
+                defaultValue={editService ? editService.description : null}
                 type="text"
                 placeholder="Package Details..."
                 required=""
@@ -123,6 +173,9 @@ const AddService = () => {
                 id="grid-title1"
                 type="number"
                 {...register("seniorPhotographer", { required: true })}
+                defaultValue={
+                  editService ? editService.seniorPhotographer : null
+                }
                 placeholder="3 Person"
               />
             </div>
@@ -139,6 +192,9 @@ const AddService = () => {
                 id="grid-title2"
                 type="number"
                 {...register("seniorCinematographers", { required: true })}
+                defaultValue={
+                  editService ? editService.seniorCinematographers : null
+                }
                 placeholder="2 Person"
               />
             </div>
@@ -157,6 +213,9 @@ const AddService = () => {
                 id="grid-title3"
                 type="number"
                 {...register("assistantPhotographer", { required: true })}
+                defaultValue={
+                  editService ? editService.assistantPhotographer : null
+                }
                 placeholder="5 Person"
               />
             </div>
@@ -173,6 +232,9 @@ const AddService = () => {
                 id="grid-title4"
                 type="text"
                 {...register("outdoorPhotoshoot", { required: true })}
+                defaultValue={
+                  editService ? editService.outdoorPhotoshoot : null
+                }
                 placeholder="Yes"
               />
             </div>
@@ -204,7 +266,12 @@ const AddService = () => {
                       htmlFor="upload"
                       className="relative cursor-pointer bg-white rounded-md font-medium text-red-accent-700 hover:text-red-900 bg-red-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                     >
-                      <span>Upload a Picture</span>
+                      <span>
+                        {" "}
+                        {editService
+                          ? "Change the Picture"
+                          : "Upload a Picture"}
+                      </span>
                       <input
                         id="upload"
                         type="file"
@@ -228,7 +295,7 @@ const AddService = () => {
               type="submit"
               className="py-2 px-4 bg-red-accent-700 hover:bg-red-900 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
             >
-              Upload
+              {editService ? "Update" : "Upload"}
             </button>
           </div>
         </form>

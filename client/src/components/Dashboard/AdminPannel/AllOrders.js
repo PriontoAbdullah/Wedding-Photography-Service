@@ -104,13 +104,13 @@ const AllOrders = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-5 pb-3 pt-4 bg-red-50 border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-semibold"
+                      className="px-5 pb-3 pt-4 bg-red-50 border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-semibold"
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      className="px-5 pb-3 pt-4 bg-red-50 border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-semibold"
+                      className="px-5 pb-3 pt-4 bg-red-50 border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-semibold"
                     >
                       Action
                     </th>
@@ -158,10 +158,32 @@ const AllOrders = () => {
                           </p>
                         </td>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <span className="relative inline-block px-3 py-1 font-semibold text-yellow-700 leading-tight">
+                          <span
+                            className={`relative inline-block px-3 py-1 font-semibold leading-tight ${
+                              order.status === "Pending"
+                                ? "text-yellow-600"
+                                : order.status === "Confirmed"
+                                ? "text-indigo-600"
+                                : order.status === "Completed"
+                                ? "text-green-600"
+                                : order.status === "Cancelled"
+                                ? "text-red-600"
+                                : "text-blue-600"
+                            }`}
+                          >
                             <span
                               aria-hidden="true"
-                              className="absolute inset-0 bg-yellow-200 opacity-50 rounded-full"
+                              className={`absolute inset-0 opacity-50 rounded-full ${
+                                order.status === "Pending"
+                                  ? "bg-yellow-200"
+                                  : order.status === "Confirmed"
+                                  ? "bg-indigo-200"
+                                  : order.status === "Completed"
+                                  ? "bg-green-200"
+                                  : order.status === "Cancelled"
+                                  ? "bg-red-200"
+                                  : "bg-blue-200"
+                              }`}
                             ></span>
                             <span className="relative">{order.status}</span>
                           </span>

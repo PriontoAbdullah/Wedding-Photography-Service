@@ -5,7 +5,7 @@ import AddService from "./AdminPannel/AddService";
 import AllOrders from "./AdminPannel/AllOrders";
 import MakeAdmin from "./AdminPannel/MakeAdmin";
 import ManageService from "./AdminPannel/ManageService";
-import DashboardLoader from "./DashboardLoader";
+import DashboardLoader from "./Loader/DashboardLoader";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import BookService from "./UserPannel/BookService";
@@ -43,7 +43,7 @@ const Dashboard = ({ adminLoading }) => {
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} adminLoading={adminLoading} />
 
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">

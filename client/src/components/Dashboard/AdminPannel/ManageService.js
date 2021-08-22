@@ -1,15 +1,13 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { UserContext } from "../../../App";
+import AddService from "./AddService";
 
 const ManageService = () => {
-  const {
-    loggedInUser: { email },
-  } = useContext(UserContext);
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [editService, setEditService] = useState({});
 
   const SkeletonComponent = () => (
     <SkeletonTheme color="#FFEBEE" highlightColor="#FAFAFA">
@@ -27,9 +25,53 @@ const ManageService = () => {
         setLoading(false);
       })
       .catch((error) => toast.error(error.message));
-  }, []);
+  }, [editService]);
 
-  return (
+  const restrictPermission = (id) => {
+    if (
+      id === "61212885c0c71180cb203a2d" ||
+      id === "61213016c0c71180cb203a2e" ||
+      id === "612130b9c0c71180cb203a2f" ||
+      id === "61213101c0c71180cb203a30"
+    ) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleDeleteService = (id) => {
+    if (restrictPermission(id)) {
+      return toast.error(
+        "Permission restriction! As a test-admin, you don't have permission to delete 4 core services. But you can delete your added services."
+      );
+    }
+
+    const loading = toast.loading("Deleting... Please wait!");
+    const removedServices = services.filter((item) => item._id !== id);
+    axios
+      .delete(`https://wedding-photography-71.herokuapp.com/delete/${id}`)
+      .then((res) => {
+        toast.dismiss(loading);
+        if (res.data) {
+          setServices(removedServices);
+          return toast.success("Service has been successfully deleted");
+        }
+
+        toast.error("Failed! Something went wrong! Please try again.");
+      })
+      .catch((err) => {
+        toast.dismiss(loading);
+        toast.error(err);
+      });
+  };
+
+  return editService._id ? (
+    <AddService
+      editService={editService}
+      setEditService={setEditService}
+      restrictPermission={restrictPermission}
+    />
+  ) : (
     <section>
       <div className="container mx-auto px-4 sm:px-8 max-w-full sm:max-w-5xl">
         <div className="flex flex-row mb-1 sm:mb-0 justify-between w-full">
@@ -112,7 +154,10 @@ const ManageService = () => {
                           </p>
                         </td>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm flex align-center justify-center">
-                          <button className="flex align-center justify-center font-body font-semibold text-orange-700 hover:text-orange-900">
+                          <button
+                            className="flex align-center justify-center font-body font-semibold text-orange-700 hover:text-orange-900"
+                            onClick={() => setEditService(service)}
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="h-6 w-6"
@@ -129,7 +174,10 @@ const ManageService = () => {
                             </svg>{" "}
                             Edit
                           </button>
-                          <button className="flex align-center ml-5 justify-center font-body font-semibold text-red-600 hover:text-red-900">
+                          <button
+                            className="flex align-center ml-5 justify-center font-body font-semibold text-red-600 hover:text-red-900"
+                            onClick={() => handleDeleteService(service._id)}
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="h-6 w-6"
