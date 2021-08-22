@@ -100,13 +100,13 @@ client.connect((err) => {
   // Update Method Controllers
 
   app.patch("/updateOrderStatus", (req, res) => {
-    const { id, status } = req.body;
+    const { id, status, progress } = req.body;
     console.log(req.body);
     orderCollection
       .findOneAndUpdate(
         { _id: ObjectId(id) },
         {
-          $set: { status },
+          $set: { status, progress },
         }
       )
       .then((result) => res.send(result.lastErrorObject.updatedExisting));

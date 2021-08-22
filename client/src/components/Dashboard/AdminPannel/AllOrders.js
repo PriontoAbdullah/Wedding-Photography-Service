@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { UserContext } from "../../../App";
+import EditOrders from "./EditOrders";
 
 const AllOrders = () => {
   const {
@@ -10,6 +11,8 @@ const AllOrders = () => {
   } = useContext(UserContext);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [editModal, setEditModal] = useState(false);
+  const [viewOrder, setViewOrder] = useState();
 
   const SkeletonComponent = () => (
     <SkeletonTheme color="#FFEBEE" highlightColor="#FAFAFA">
@@ -18,6 +21,12 @@ const AllOrders = () => {
       </section>
     </SkeletonTheme>
   );
+
+  const openOrderModal = (orderId) => {
+    setEditModal(true);
+    const selectedOrder = orders.find((item) => item._id === orderId);
+    setViewOrder(selectedOrder);
+  };
 
   useEffect(() => {
     axios
@@ -145,7 +154,7 @@ const AllOrders = () => {
                         </td>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">
-                            {order.price}
+                            ৳ {order.price}
                           </p>
                         </td>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -158,7 +167,10 @@ const AllOrders = () => {
                           </span>
                         </td>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <button className="flex align-center justify-center font-body font-semibold text-red-600 hover:text-red-900">
+                          <button
+                            className="flex align-center justify-center font-body font-semibold text-red-600 hover:text-red-900"
+                            onClick={() => openOrderModal(order._id)}
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="h-6 w-6"
@@ -238,6 +250,16 @@ const AllOrders = () => {
           )}
         </div>
       </div>
+
+      {/* Edit Modal Component */}
+      {editModal ? (
+        <EditOrders
+          setEditModal={setEditModal}
+          viewOrder={viewOrder}
+          orders={orders}
+          setOrders={setOrders}
+        />
+      ) : null}
     </section>
   );
 };

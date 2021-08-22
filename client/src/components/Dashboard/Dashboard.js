@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../App";
 import AddService from "./AdminPannel/AddService";
@@ -15,11 +15,13 @@ import Profile from "./Welcome/Profile";
 
 const Dashboard = ({ adminLoading }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
   const { isAdmin } = useContext(UserContext);
-
   const { panel } = useParams();
   const history = useHistory();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // User Pannel
   if (

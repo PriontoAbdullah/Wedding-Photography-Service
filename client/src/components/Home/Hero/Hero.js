@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 const Hero = ({ data }) => {
   const { label, title, titleColored, description, image } = data;
@@ -35,10 +36,9 @@ const Hero = ({ data }) => {
             {description}
           </p>
           <div className="flex items-center">
-            <a
-              href="/"
-              aria-label=""
-              className="inline-flex items-center font-medium transition-colors duration-200 text-red-accent-700 hover:text-red-500"
+            <Link
+              to="gallery"
+              className="inline-flex items-center font-medium transition-colors duration-200 text-red-accent-700 hover:text-red-500 cursor-pointer"
             >
               View Gallery
               <svg
@@ -48,7 +48,7 @@ const Hero = ({ data }) => {
               >
                 <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

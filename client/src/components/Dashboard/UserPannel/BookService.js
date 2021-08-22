@@ -90,7 +90,7 @@ const BookService = () => {
     data.price = serviceInfo.price;
     data.image = serviceInfo.image;
     data.status = "Pending";
-    data.progress = "33%";
+    data.progress = "20%";
 
     const orderDetails = {
       ...data,
@@ -164,7 +164,7 @@ const BookService = () => {
                     <span className="text-gray-800 sm:text-sm">৳</span>
                   </div>
                   <div className="border-l border-b border-t border-gray-300 pl-7 pr-12 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent">
-                    {selectedOption.price || price}{" "}
+                    {selectedOption.price || price}
                   </div>
                   <div className="absolute inset-y-0 right-0 flex items-center">
                     <span className="focus:ring-red-500 py-2 px-4 border-t border-r border-gray-300 border-b focus:border-red-500 h-full pl-2 pr-7 border-transparent bg-transparent text-gray-700 sm:text-sm rounded-r-md">

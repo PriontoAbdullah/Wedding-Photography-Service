@@ -72,7 +72,7 @@ const Blog = () => {
                   aria-label=""
                   className="inline-flex items-center font-body font-semibold transition-colors duration-200 text-red-600 hover:text-red-700"
                 >
-                  Learn more
+                  Read more
                 </a>
               </div>
             </div>
