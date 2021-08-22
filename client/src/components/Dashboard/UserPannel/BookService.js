@@ -12,7 +12,7 @@ const BookService = () => {
   const history = useHistory();
   const {
     selectedService: { title, price },
-    loggedInUser: { name, email },
+    loggedInUser: { name, email, photo },
   } = useContext(UserContext);
   const [startDate, setStartDate] = useState(new Date());
   const [services, setServices] = useState([]);
@@ -88,19 +88,22 @@ const BookService = () => {
     delete serviceInfo._id;
     data.service = serviceInfo.title;
     data.price = serviceInfo.price;
+    data.image = serviceInfo.image;
     data.status = "Pending";
+    data.progress = "33%";
 
     const orderDetails = {
       ...data,
       orderDate: startDate,
       email,
+      photo
     };
 
     axios
       .post("http://localhost:5000/addOrder", orderDetails)
       .then((res) => {
         toast.dismiss(loading);
-        toast.success("Your Package has been Booking Successfully!");
+        toast.success("Your Booking has been Successful!");
         history.replace({ pathname: "/dashboard/myOrder" });
       })
       .catch((error) => {
@@ -201,7 +204,7 @@ const BookService = () => {
                   <input
                     type="text"
                     {...register("name", { required: true })}
-                    className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-600 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                    className="booking-input"
                     placeholder="Name"
                     defaultValue={name}
                   />
@@ -212,7 +215,7 @@ const BookService = () => {
                   <input
                     type="text"
                     id="user-info-email"
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-600 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                    className="booking-input"
                     placeholder="Email"
                     defaultValue={email}
                     disabled
@@ -224,7 +227,7 @@ const BookService = () => {
                   <input
                     type="text"
                     {...register("phone", { required: true })}
-                    className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-600 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                    className="booking-input"
                     placeholder="Phone"
                   />
                 </div>
@@ -234,7 +237,7 @@ const BookService = () => {
                   <input
                     type="text"
                     {...register("address", { required: true })}
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-600 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                    className="booking-input"
                     placeholder="Address"
                   />
                 </div>

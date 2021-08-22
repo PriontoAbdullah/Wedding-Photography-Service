@@ -41,6 +41,10 @@
   @apply w-full h-32 px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-red-50 focus:border-red-500 text-gray-700 placeholder-gray-500 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent;
 }
 
+.booking-input {
+  @apply rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-600 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent;
+}
+
 .react-datepicker__input-container input {
   @apply rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-600 shadow-sm text-base focus:border-transparent focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-400 focus:border-transparent;
 }

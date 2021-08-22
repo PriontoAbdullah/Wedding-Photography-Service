@@ -61,6 +61,16 @@ client.connect((err) => {
       .toArray((err, docs) => res.send(!!docs.length));
   });
 
+  app.get("/message", (req, res) => {
+    if (req.query.email) {
+      return messageCollection
+        .find({ email: req.query.email })
+        .toArray((err, docs) => res.send(docs[0]));
+    }
+
+    messageCollection.find({}).toArray((err, docs) => res.send(docs));
+  });
+
   // Post Method Controllers
 
   app.post("/addService", (req, res) => {
@@ -79,6 +89,46 @@ client.connect((err) => {
     orderCollection
       .insertOne(req.body)
       .then((result) => res.send(!!result.insertedCount));
+  });
+
+  app.post("/addMessage", (req, res) => {
+    messageCollection
+      .insertOne(req.body)
+      .then((result) => res.send(!!result.insertedCount));
+  });
+
+  // Update Method Controllers
+
+  app.patch("/updateOrderStatus", (req, res) => {
+    const { id, status } = req.body;
+    console.log(req.body);
+    orderCollection
+      .findOneAndUpdate(
+        { _id: ObjectId(id) },
+        {
+          $set: { status },
+        }
+      )
+      .then((result) => res.send(result.lastErrorObject.updatedExisting));
+  });
+
+  app.patch("/update/:id", (req, res) => {
+    serviceCollection
+      .updateOne(
+        { _id: ObjectId(req.params.id) },
+        {
+          $set: req.body,
+        }
+      )
+      .then((result) => res.send(!!result.modifiedCount));
+  });
+
+  // Delete Method Controllers
+
+  app.delete("/delete/:id", (req, res) => {
+    serviceCollection
+      .deleteOne({ _id: ObjectId(req.params.id) })
+      .then((result) => res.send(!!result.deletedCount));
   });
 
   //End of controller
