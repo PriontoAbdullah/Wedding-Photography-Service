@@ -1,6 +1,35 @@
-import React from "react";
+import axios from "axios";
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { UserContext } from "../../../App";
 
 const ContactUs = () => {
+  const {
+    loggedInUser: { photo, name, email },
+  } = useContext(UserContext);
+  const { register, handleSubmit, reset } = useForm();
+
+  const onSubmit = (data) => {
+    const loading = toast.loading("Sending... Please wait!");
+    data.img = photo || "https://i.imgur.com/1As0akH.png";
+    data.email = email;
+    data.name = name;
+    data.time = new Date().toLocaleString();
+
+    axios
+      .post("https://wedding-photography-71.herokuapp.com/addMessage", data)
+      .then((res) => {
+        toast.dismiss(loading);
+        reset();
+        toast.success("Message has been successfully sent!");
+      })
+      .catch((err) => {
+        toast.dismiss(loading);
+        toast.error(err);
+      });
+  };
+
   return (
     <section className="w-full max-w-2xl px-6 py-4 mb-6 mx-auto bg-white rounded-md shadow-3xl dark:bg-gray-800">
       <h2 className="text-3xl font-display mt-2 font-semibold text-center text-red-accent-700 dark:text-white">
@@ -73,7 +102,7 @@ const ContactUs = () => {
         </a>
       </div>
 
-      <div className="mt-6 font-body">
+      <form className="mt-6 font-body" onSubmit={handleSubmit(onSubmit)}>
         <div className="items-center -mx-2 md:flex">
           <div className="w-full mx-2">
             <label className="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
@@ -83,6 +112,8 @@ const ContactUs = () => {
             <input
               className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-red-500 dark:focus:border-red-500 focus:outline-none"
               type="text"
+              defaultValue={name}
+              disabled
             />
           </div>
 
@@ -94,6 +125,8 @@ const ContactUs = () => {
             <input
               className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-red-500 dark:focus:border-red-500 focus:outline-none"
               type="email"
+              defaultValue={email}
+              disabled
             />
           </div>
         </div>
@@ -103,15 +136,21 @@ const ContactUs = () => {
             Message
           </label>
 
-          <textarea className="block w-full h-40 px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-red-500 dark:focus:border-red-500 focus:outline-none"></textarea>
+          <textarea
+            className="block w-full h-40 px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-red-500 dark:focus:border-red-500 focus:outline-none"
+            {...register("description", { required: true })}
+          ></textarea>
         </div>
 
         <div className="flex justify-center mt-6">
-          <button className="font-body font-semibold px-4 py-2 text-gray-50 text-base transition-colors duration-200 transform bg-red-accent-700 rounded-md hover:bg-red-900 focus:outline-none focus:bg-red-700">
+          <button
+            className="font-body font-semibold px-4 py-2 text-gray-50 text-base transition-colors duration-200 transform bg-red-accent-700 rounded-md hover:bg-red-900 focus:outline-none focus:bg-red-700"
+            type="submit"
+          >
             Send Message
           </button>
         </div>
-      </div>
+      </form>
     </section>
   );
 };

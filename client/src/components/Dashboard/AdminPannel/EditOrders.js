@@ -65,7 +65,7 @@ const EditOrders = ({ setEditModal, viewOrder, orders, setOrders }) => {
       <div className="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none backdrop-filter saturate-150 backdrop-blur-sm">
         <div className="container items-center px-5 py-12 lg:px-20 ml-0 lg:ml-20">
           <div
-            className="w-full mx-auto border rounded-lg shadow-xl  text-gray-800 lg:w-7/12 bg-white"
+            className="w-full mx-auto border rounded-lg shadow-xl text-gray-800 lg:w-7/12 bg-white"
             aria-hidden="false"
             aria-describedby="modalDescription"
             role="dialog"

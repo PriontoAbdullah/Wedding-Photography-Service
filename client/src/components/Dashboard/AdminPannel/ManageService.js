@@ -11,7 +11,7 @@ const ManageService = () => {
 
   const SkeletonComponent = () => (
     <SkeletonTheme color="#FFEBEE" highlightColor="#FAFAFA">
-      <section className="mt-6">
+      <section className="mt-2">
         <Skeleton height={450} width={950} />
       </section>
     </SkeletonTheme>

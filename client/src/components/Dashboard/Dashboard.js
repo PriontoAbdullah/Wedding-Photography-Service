@@ -5,8 +5,9 @@ import AddService from "./AdminPannel/AddService";
 import AllOrders from "./AdminPannel/AllOrders";
 import MakeAdmin from "./AdminPannel/MakeAdmin";
 import ManageService from "./AdminPannel/ManageService";
-import DashboardLoader from "./Loader/DashboardLoader";
+import Messages from "./AdminPannel/Messages";
 import Header from "./Header";
+import DashboardLoader from "./Loader/DashboardLoader";
 import Sidebar from "./Sidebar";
 import BookService from "./UserPannel/BookService";
 import ContactUs from "./UserPannel/ContactUs";
@@ -27,7 +28,11 @@ const Dashboard = ({ adminLoading }) => {
   if (
     !adminLoading &&
     !isAdmin &&
-    (panel === "allOrders" || panel === "addService")
+    (panel === "allOrders" ||
+      panel === "addService" ||
+      panel === "manageService" ||
+      panel === "makeAdmin" ||
+      panel === "messages")
   ) {
     history.replace({ pathname: "/dashboard/profile" });
   }
@@ -43,7 +48,11 @@ const Dashboard = ({ adminLoading }) => {
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} adminLoading={adminLoading} />
+      <Sidebar
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+        adminLoading={adminLoading}
+      />
 
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
@@ -66,6 +75,8 @@ const Dashboard = ({ adminLoading }) => {
               <ManageService />
             ) : panel === "makeAdmin" && isAdmin ? (
               <MakeAdmin />
+            ) : panel === "messages" && isAdmin ? (
+              <Messages />
             ) : // User Pannel
             panel === "bookService" ? (
               <BookService />
