@@ -4,6 +4,7 @@ import { UserContext } from "../../App";
 import AddService from "./AdminPannel/AddService";
 import AllOrders from "./AdminPannel/AllOrders";
 import MakeAdmin from "./AdminPannel/MakeAdmin";
+import ManageService from "./AdminPannel/ManageService";
 import DashboardLoader from "./DashboardLoader";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -59,6 +60,8 @@ const Dashboard = ({ adminLoading }) => {
               <AllOrders />
             ) : panel === "addService" && isAdmin ? (
               <AddService />
+            ) : panel === "manageService" && isAdmin ? (
+              <ManageService />
             ) : panel === "makeAdmin" && isAdmin ? (
               <MakeAdmin />
             ) : // User Pannel

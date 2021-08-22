@@ -26,7 +26,7 @@ const MyOrder = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/orders?email=${email}`)
+      .get(`https://wedding-photography-71.herokuapp.com/orders?email=${email}`)
       .then((res) => {
         setOrders(res.data);
         setLoading(false);

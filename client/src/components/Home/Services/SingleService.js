@@ -35,7 +35,7 @@ const SingleService = ({ service }) => {
               className="inline-flex items-center justify-center h-10 px-5 font-display font-bold text-base tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-accent-700 focus:shadow-outline focus:outline-none"
               onClick={() => setSelectedService(service)}
             >
-              Buy Now
+              Book Now
             </button>
           </Link>
           <Link

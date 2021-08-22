@@ -39,7 +39,7 @@ const BookService = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/services")
+      .get("https://wedding-photography-71.herokuapp.com/services")
       .then((res) => setServices(res.data))
       .catch((error) => toast.error(error.message));
   }, []);
@@ -96,11 +96,14 @@ const BookService = () => {
       ...data,
       orderDate: startDate,
       email,
-      photo
+      photo,
     };
 
     axios
-      .post("http://localhost:5000/addOrder", orderDetails)
+      .post(
+        "https://wedding-photography-71.herokuapp.com/addOrder",
+        orderDetails
+      )
       .then((res) => {
         toast.dismiss(loading);
         toast.success("Your Booking has been Successful!");

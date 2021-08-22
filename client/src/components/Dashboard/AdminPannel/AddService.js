@@ -39,7 +39,10 @@ const AddService = () => {
     };
 
     axios
-      .post("http://localhost:5000/addService", serviceInfo)
+      .post(
+        "https://wedding-photography-71.herokuapp.com/addService",
+        serviceInfo
+      )
       .then((res) => {
         toast.dismiss(loading);
         toast.success("Service has been Successfully Uploaded");

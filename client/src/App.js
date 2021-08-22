@@ -30,7 +30,9 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/isAdmin?email=${loggedInUser?.email}`)
+      .get(
+        `https://wedding-photography-71.herokuapp.com/isAdmin?email=${loggedInUser?.email}`
+      )
       .then((res) => {
         setIsAdmin(res.data);
         setAdminLoading(false);

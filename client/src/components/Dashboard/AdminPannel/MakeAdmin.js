@@ -11,7 +11,7 @@ const MakeAdmin = () => {
   const onSubmit = (data) => {
     const loading = toast.loading("Adding...Please wait!");
     axios
-      .post("http://localhost:5000/addAdmin", data)
+      .post("https://wedding-photography-71.herokuapp.com/addAdmin", data)
       .then((res) => {
         toast.dismiss(loading);
         toast.success("success");

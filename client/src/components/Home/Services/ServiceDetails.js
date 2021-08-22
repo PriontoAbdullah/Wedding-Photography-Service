@@ -65,7 +65,7 @@ const ServiceDetails = () => {
                   to="/dashboard/bookService"
                   className="signup-button flex ml-auto"
                 >
-                  Buy Now
+                  Book Now
                 </Link>
 
                 <button className="rounded-full w-10 h-10 bg-red-100 p-0 border-0 inline-flex items-center justify-center text-red-accent-700 ml-4">
