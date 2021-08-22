@@ -31,7 +31,7 @@ const FeaturesList = [
 const ServiceFeatures = () => {
   return (
     <section className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-      <Fade top>
+      <Fade bottom>
         <div className="text-gray-600 body-font">
           <div className="container px-5 mx-auto">
             <div className="text-center mb-8">

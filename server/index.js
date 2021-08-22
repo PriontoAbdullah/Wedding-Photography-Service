@@ -75,6 +75,12 @@ client.connect((err) => {
       .then((result) => res.send(!!result.insertedCount));
   });
 
+  app.post("/addOrder", (req, res) => {
+    orderCollection
+      .insertOne(req.body)
+      .then((result) => res.send(!!result.insertedCount));
+  });
+
   //End of controller
 });
 

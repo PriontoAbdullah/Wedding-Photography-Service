@@ -43,7 +43,7 @@ const AddService = () => {
       .then((res) => {
         toast.dismiss(loading);
         toast.success("Service has been Successfully Uploaded");
-        history.replace({ pathname: "/dashboard/profile" });
+        history.replace({ pathname: "/dashboard/manageService" });
       })
       .catch((error) => {
         toast.dismiss(loading);

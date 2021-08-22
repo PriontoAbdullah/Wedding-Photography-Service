@@ -1,7 +1,10 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import UserMenu from "./UserMenu";
 
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
+  const { panel } = useParams();
+
   return (
     <header className="sticky top-0 bg-white border-b border-gray-200 z-30">
       <div className="px-4 sm:px-6 lg:px-8">
@@ -27,7 +30,26 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
               </svg>
             </button>
             <h1 className="ml-2 sm:ml-0 font-display font-semibold text-lg sm:text-xl text-gray-900">
-              Dashboard 🚀
+              {panel === "profile"
+                ? "Dashboard"
+                : panel === "allOrders"
+                ? "All Orders"
+                : panel === "addService"
+                ? "Add Service"
+                : panel === "manageService"
+                ? "Manage Service"
+                : panel === "makeAdmin"
+                ? "Make Admin"
+                : panel === "bookService"
+                ? "Book Service"
+                : panel === "messages"
+                ? "Messages"
+                : panel === "myOrder"
+                ? "My Order"
+                : panel === "contact"
+                ? "Contact Us"
+                : null}{" "}
+              🚀
             </h1>
           </div>
 

@@ -15,10 +15,7 @@ import Profile from "./Welcome/Profile";
 const Dashboard = ({ adminLoading }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const {
-    loggedInUser: { email },
-    isAdmin,
-  } = useContext(UserContext);
+  const { isAdmin } = useContext(UserContext);
 
   const { panel } = useParams();
   const history = useHistory();

@@ -42,7 +42,7 @@
 }
 
 .react-datepicker__input-container input {
-  @apply rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-600 shadow-sm text-base focus:border-transparent;
+  @apply rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-600 shadow-sm text-base focus:border-transparent focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-400 focus:border-transparent;
 }
 
 .react-datepicker__tab-loop {
