@@ -31,18 +31,18 @@ const EditOrders = ({ setEditModal, viewOrder, orders, setOrders }) => {
         order.status = status;
 
         if (status === "Canceled") {
-          progress = "0%";
+          order.progress = "0%";
         } else if (status === "Pending") {
-          progress = "25%";
+          order.progress = "25%";
         } else if (status === "Confirmed") {
-          progress = "50%";
+          order.progress = "50%";
         } else if (status === "In Progress") {
-          progress = "75%";
+          order.progress = "75%";
         } else if (status === "Completed") {
-          progress = "100%";
+          order.progress = "100%";
         }
 
-        order.progress = progress;
+        progress = order.progress;
       }
       modifiedOrders.push(order);
     });
@@ -56,7 +56,7 @@ const EditOrders = ({ setEditModal, viewOrder, orders, setOrders }) => {
         "https://wedding-photography-71.herokuapp.com/updateOrderStatus",
         modifiedStatus
       )
-      .then((res) => res.data && toast.success(`Set to order ${status}`))
+      .then((res) => res.data && toast.success(`Set Order Status to ${status}`))
       .catch((error) => toast.error(error.message));
   };
 
@@ -211,9 +211,9 @@ const EditOrders = ({ setEditModal, viewOrder, orders, setOrders }) => {
                     <dd className="mt-1 text-base text-gray-800 sm:mt-0 sm:col-span-2">
                       <button
                         onClick={() => setEditModal(false)}
-                        className=" py-2 px-4 bg-red-accent-700 hover:bg-red-900 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg "
+                        className=" py-2 px-4 bg-red-accent-700 hover:bg-red-900 focus:ring-red-500 focus:ring-offset-red-200 text-white w-52 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg "
                       >
-                        Update
+                        Close
                       </button>
                     </dd>
                   </div>
