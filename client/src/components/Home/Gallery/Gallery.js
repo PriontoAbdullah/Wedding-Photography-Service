@@ -23,10 +23,10 @@ const Gallery = () => {
             <h2 className="max-w-md mb-6 font-display text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none xl:max-w-lg">
               <span className="text-red-accent-700">Our Creative Gallery</span>
               <br />
-              <span className="leading-loose">
+              <span className="leading-none lg:leading-loose">
                 Spare a Though & Get Inspired
               </span>
-              <div className="h-1 ml-auto duration-300 origin-left transform bg-red-600 scale-x-30 group-hover:scale-x-100" />
+              <div className="h-1 ml-auto duration-300 origin-left transform bg-red-600 scale-x-30 group-hover:scale-x-100 mt-2 sm:mt-0" />
             </h2>
           </div>
           <div className="lg:w-1/2">
@@ -41,7 +41,9 @@ const Gallery = () => {
           </div>
         </div>
       </Fade>
-      <div className="py-6  text-red-900">
+
+      {/* Gallery Images */}
+      <div className="py-6 text-red-900">
         <div className="container mx-auto grid grid-cols-2 gap-4 p-4 md:grid-cols-4 transition-all duration-500 ease-in-out">
           <img
             src={image1}

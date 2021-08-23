@@ -19,6 +19,7 @@ const Footer = () => {
       <div className="px-4 pt-12 pb-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <Fade top>
           <div className="grid grid-cols-2 gap-10 mb-3 sm:grid-cols-3 lg:grid-cols-12 lg:gap-20">
+
             {/* Column 1 */}
             <div className="col-span-4">
               <Link
@@ -42,6 +43,7 @@ const Footer = () => {
                 </p>
               </div>
             </div>
+
             {/* Column 2 */}
             <div className="col-span-2 lg:col-span-3 space-y-2 text-sm font-body">
               <p className="text-lg font-semibold tracking-wide text-red-accent-700 pb-2">
@@ -126,6 +128,7 @@ const Footer = () => {
                 </span>
               </div>
             </div>
+
             {/* Column 3 */}
             <div className="col-span-1 lg:col-span-2 space-y-2 text-sm font-body">
               <p className="text-lg font-semibold tracking-wide text-red-accent-700 pb-1">
@@ -170,6 +173,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+
             {/* Column 4 */}
             <div className="col-span-3">
               <span className="text-lg font-semibold font-body tracking-wide text-red-accent-700">
@@ -223,6 +227,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
+          
           {/* Down Footer */}
           <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t border-gray-300 lg:flex-row font-body">
             <p className="text-sm font-medium text-gray-700 tracking-wide">

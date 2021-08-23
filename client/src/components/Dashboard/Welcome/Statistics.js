@@ -25,6 +25,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Projects</p>
           </div>
         </div>
+
         <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
@@ -42,6 +43,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Customers</p>
           </div>
         </div>
+
         <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
@@ -59,6 +61,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Awards</p>
           </div>
         </div>
+
         <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
@@ -76,6 +79,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Support</p>
           </div>
         </div>
+
         <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg
@@ -93,6 +97,7 @@ const Statistics = () => {
             <p className="font-display text-xl">Successful</p>
           </div>
         </div>
+
         <div className="flex overflow-hidden rounded-lg bg-red-100 text-gray-800">
           <div className="flex items-center justify-center px-4 bg-violet-600 text-red-100">
             <svg

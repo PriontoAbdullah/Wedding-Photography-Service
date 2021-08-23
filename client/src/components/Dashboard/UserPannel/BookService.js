@@ -14,16 +14,19 @@ const BookService = () => {
     selectedService: { title, price },
     loggedInUser: { name, email, photo },
   } = useContext(UserContext);
+
   const [startDate, setStartDate] = useState(new Date());
   const [services, setServices] = useState([]);
   const { register, handleSubmit } = useForm();
 
+  // get options of services
   const options = services.map((service) => ({
     value: service.title,
     label: service.title,
     price: service.price,
   }));
 
+  // set default values
   const defaultOption = title
     ? { value: title, label: title, price: price }
     : options[0] || {
@@ -32,11 +35,13 @@ const BookService = () => {
         price: 7000,
       };
 
+  // set selected service data
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const serviceInfo = services.find(
     (service) => service.title === selectedOption.value
   );
 
+  // get all services
   useEffect(() => {
     axios
       .get("https://wedding-photography-71.herokuapp.com/services")
@@ -44,6 +49,7 @@ const BookService = () => {
       .catch((error) => toast.error(error.message));
   }, []);
 
+  // style dropdown options
   const colourStyles = {
     control: (styles) => ({
       ...styles,
@@ -82,6 +88,7 @@ const BookService = () => {
     },
   };
 
+  // submit form data
   const onSubmit = async (data) => {
     const loading = toast.loading("Please wait...!");
 
@@ -99,6 +106,7 @@ const BookService = () => {
       photo,
     };
 
+    // post a new order
     axios
       .post(
         "https://wedding-photography-71.herokuapp.com/addOrder",
@@ -163,7 +171,7 @@ const BookService = () => {
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <span className="text-gray-800 sm:text-sm">৳</span>
                   </div>
-                  <div className="border-l border-b border-t border-gray-300 pl-7 pr-12 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent">
+                  <div className="border-l border-b border-t  pl-7 pr-12 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-800 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent">
                     {selectedOption.price || price}
                   </div>
                   <div className="absolute inset-y-0 right-0 flex items-center">

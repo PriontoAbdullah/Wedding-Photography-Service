@@ -5,7 +5,7 @@ import blogData from "../../../data/blogData.js";
 const Blog = () => {
   const [blogs, SetBlogs] = useState([]);
 
-  // Get team members data
+  // Get all team members data
   useEffect(() => {
     SetBlogs(blogData);
   }, [blogs]);
@@ -18,8 +18,10 @@ const Blog = () => {
             <h2 className="max-w-md mb-6 font-display text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none xl:max-w-lg">
               <span className="text-red-accent-700">Wedding Photography</span>
               <br />
-              <span className="leading-loose ">Making Weddings beautiful</span>
-              <div className="h-1 ml-auto duration-300 origin-left transform bg-red-600 scale-x-30 group-hover:scale-x-100" />
+              <span className="leading-none lg:leading-loose">
+                Making Weddings beautiful
+              </span>
+              <div className="h-1 ml-auto duration-300 origin-left transform bg-red-600 scale-x-30 group-hover:scale-x-100 mt-2 sm:mt-0" />
             </h2>
           </div>
           <div className="lg:w-1/2">
@@ -33,6 +35,7 @@ const Blog = () => {
           </div>
         </div>
 
+        {/* Team Members Data Card */}
         <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
           {blogs?.map((blog) => (
             <div

@@ -13,13 +13,14 @@ import { getDecodedUser } from "./components/Authentication/LoginManager";
 import PrivateRoute from "./components/Authentication/PrivateRoute";
 import LoadingSpinner from "./components/Home/LoadingSpinner/LoadingSpinner";
 
-// rapped with lazy loading
+// Rapped with lazy loading
 const Home = lazy(() => import("./pages/Home"));
 const Services = lazy(() => import("./pages/ServicePage"));
 const Dashboard = lazy(() => import("./pages/DashboardPage.js"));
 const Authentication = lazy(() => import("./pages/Authentication"));
 const Error = lazy(() => import("./components/Home/Error/Error.js"));
 
+// Create User Context
 export const UserContext = createContext();
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
   const [adminLoading, setAdminLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
 
+  // Check Admin User
   useEffect(() => {
     axios
       .get(
@@ -66,6 +68,7 @@ const App = () => {
             <Route exact path="/login">
               <Authentication />
             </Route>
+            {/* Private Route */}
             <PrivateRoute exact path="/dashboard/:panel">
               <Dashboard adminLoading={adminLoading} />
             </PrivateRoute>

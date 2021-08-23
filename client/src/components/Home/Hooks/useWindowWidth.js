@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const useWindowWidth = (screenSize) => {
   const [onSmallScreen, setOnSmallScreen] = useState(false);
 
+  // Check the window screen size
   useEffect(() => {
     const checkScreenSize = () => {
       setOnSmallScreen(window.innerWidth < screenSize);

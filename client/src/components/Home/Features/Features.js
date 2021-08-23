@@ -28,7 +28,7 @@ const Features = () => {
       className="px-4 pb-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pb-24"
       id="features"
     >
-      <Fade top>
+      <Fade bottom>
         <div className="flex flex-col mb-6 lg:flex-row md:mb-10">
           <div className="lg:w-1/2">
             <h2 className="max-w-md mb-6 font-display text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none xl:max-w-lg">
@@ -52,8 +52,10 @@ const Features = () => {
           </div>
         </div>
       </Fade>
+
+      {/* Column 1 */}
       <div className="grid gap-8 row-gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        <Fade top>
+        <Fade bottom>
           <div>
             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-50">
               <svg
@@ -101,7 +103,9 @@ const Features = () => {
             </a>
           </div>
         </Fade>
-        <Fade top>
+
+        {/* Column 2 */}
+        <Fade bottom>
           <div>
             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-50">
               <svg
@@ -129,7 +133,7 @@ const Features = () => {
               Professional Photography
             </h6>
             <p className="mb-3 font-body text-sm text-gray-700 leading-normal">
-              Apart from professional wedding we are one of the top wedding
+              Apart from professional wedding we are one of the bottom wedding
               photographers in Dhaka.
             </p>
             <ul className="mb-4 -ml-1 space-y-2 font-body text-base text-gray-800">
@@ -155,7 +159,9 @@ const Features = () => {
             </a>
           </div>
         </Fade>
-        <Fade top>
+
+        {/* Column 3 */}
+        <Fade bottom>
           <div>
             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-50">
               <svg
@@ -203,7 +209,9 @@ const Features = () => {
             </a>
           </div>
         </Fade>
-        <Fade top>
+
+        {/* Column 4 */}
+        <Fade bottom>
           <div>
             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-50">
               <svg

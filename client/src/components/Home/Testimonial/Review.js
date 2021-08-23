@@ -23,6 +23,7 @@ const Review = ({ reviews }) => {
           “
         </div>
         <div className="relative text-center">
+          {/* Review Count */}
           <div className="mb-3">
             <div className="inline-flex items-center text-red-400 bg-orange-100 px-2 py-1 rounded-lg">
               <Star />
@@ -32,6 +33,8 @@ const Review = ({ reviews }) => {
               <Star />
             </div>
           </div>
+
+          {/* Review Message */}
           <blockquote className="lg:w-10/12 mx-auto pb-8">
             <p className="font-body font-medium text-lg leading-8 mb-5 text-gray-900">
               {review}

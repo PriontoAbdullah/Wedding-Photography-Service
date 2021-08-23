@@ -98,6 +98,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
         </div>
 
         <nav className="flex-grow pb-4 pr-4 md:block md:pb-0 md:overflow-y-auto">
+          {/* Admin loading  */}
           {adminLoading ? (
             <SidebarLoader />
           ) : (
@@ -108,6 +109,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                     panel === "profile" ? "sidebar-item-active" : "sidebar-item"
                   }
                   to="/dashboard/profile"
+                  onClick={() => setSidebarOpen(!sidebarOpen)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -142,6 +144,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                           : "sidebar-item"
                       }
                       to="/dashboard/allOrders"
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -181,6 +184,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                           : "sidebar-item"
                       }
                       to="/dashboard/addService"
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -213,6 +217,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                           : "sidebar-item"
                       }
                       to="/dashboard/manageService"
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -239,6 +244,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                           : "sidebar-item"
                       }
                       to="/dashboard/messages"
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -265,6 +271,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                           : "sidebar-item"
                       }
                       to="/dashboard/makeAdmin"
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -294,6 +301,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                 </>
               ) : (
                 <>
+                  {/* User Panel */}
                   <li>
                     <Link
                       className={
@@ -302,6 +310,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                           : "sidebar-item"
                       }
                       to="/dashboard/bookService"
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -341,6 +350,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                           : "sidebar-item"
                       }
                       to="/dashboard/myOrder"
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -373,6 +383,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, adminLoading }) => {
                           : "sidebar-item"
                       }
                       to="/dashboard/contact"
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

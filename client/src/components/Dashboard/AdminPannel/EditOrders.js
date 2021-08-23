@@ -22,6 +22,7 @@ const EditOrders = ({ setEditModal, viewOrder, orders, setOrders }) => {
     day: "numeric",
   };
 
+  // handle status change
   const handleStatusChange = (id, status) => {
     let modifiedOrders = [];
     let progress;
@@ -51,6 +52,7 @@ const EditOrders = ({ setEditModal, viewOrder, orders, setOrders }) => {
 
     const modifiedStatus = { id, status, progress };
 
+    // update order status
     axios
       .patch(
         "https://wedding-photography-71.herokuapp.com/updateOrderStatus",
@@ -73,7 +75,7 @@ const EditOrders = ({ setEditModal, viewOrder, orders, setOrders }) => {
             <div className="bg-white shadow overflow-hidden sm:rounded-lg font-body font-medium">
               <div className="flex items-center justify-between pt-4">
                 <div className="px-4 sm:px-6 mb-4">
-                  <h3 className="text-lg sm:text-xl leading-6 text-red-accent-700 font-semibold text-gray-800">
+                  <h3 className="text-lg sm:text-xl leading-6 text-red-accent-700 font-semibold">
                     Order Details
                   </h3>
                   <p className="mt-1 max-w-2xl text-base text-gray-700">
@@ -173,6 +175,8 @@ const EditOrders = ({ setEditModal, viewOrder, orders, setOrders }) => {
                       {new Date(orderDate).toLocaleDateString("en-US", options)}
                     </dd>
                   </div>
+
+                  {/* update order status */}
                   <div className="bg-red-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                     <dt className="text-base font-medium text-gray-700">
                       Order Status

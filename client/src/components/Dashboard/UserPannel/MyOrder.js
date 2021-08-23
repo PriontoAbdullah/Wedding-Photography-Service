@@ -27,6 +27,7 @@ const MyOrder = () => {
     day: "numeric",
   };
 
+  // get user order list
   useEffect(() => {
     axios
       .get(`https://wedding-photography-71.herokuapp.com/orders?email=${email}`)
@@ -46,6 +47,7 @@ const MyOrder = () => {
         </div>
       ) : (
         <div>
+          {/* view all orders list */}
           {orders.length ? (
             orders.map((order) => {
               return (
@@ -60,13 +62,13 @@ const MyOrder = () => {
                         className="rounded-xl w-full max-h-56 md:w-72 md:max-h-44"
                         alt="package"
                       />
-                      <span className="font-body font-medium px-2 py-1 text-gray-50 bg-red-200 text-xs rounded absolute right-2 bottom-2 bg-opacity-50">
+                      <span className="font-body font-medium px-2 py-1 text-gray-50 bg-red-200 text-xs rounded-lg absolute right-1 bottom-1 sm:bottom-2 bg-opacity-50">
                         {order.service}
                       </span>
                     </div>
                     <div className="flex flex-col justify-between pl-0 sm:pl-4">
                       <div className="flex items-start justify-between text-red-accent-700 dark:text-white my-2 md:m-0">
-                        <p className="font-display text-2xl leading-5">
+                        <p className="font-display text-xl sm:text-2xl leading-5">
                           {order.service} Package
                         </p>
                         <button className="ml-24 text-red-400 hover:text-red-700">
@@ -82,9 +84,9 @@ const MyOrder = () => {
                         </button>
                       </div>
 
-                      <div className="flex items-center justify-between mt-3 space-x-12 font-body">
+                      <div className="flex items-center justify-between mt-2 space-x-12 font-body">
                         <span
-                          className={`px-2 py-1 flex items-center font-semibold text-lg rounded-md ${
+                          className={`px-2 py-1 flex items-center font-semibold text-base sm:text-lg rounded-md ${
                             order.status === "Pending"
                               ? "text-yellow-600 bg-yellow-200"
                               : order.status === "Confirmed"
@@ -98,7 +100,7 @@ const MyOrder = () => {
                         >
                           {order.status}
                         </span>
-                        <span className="px-2 py-1 flex items-center font-semibold text-base rounded-md text-gray-500 border border-gray-500 bg-white">
+                        <span className="px-2 py-1 flex items-center font-semibold text-sm sm:text-base rounded-md text-gray-500 border border-gray-500 bg-white">
                           Weeding
                         </span>
                       </div>
@@ -127,16 +129,16 @@ const MyOrder = () => {
 
                       <div className="flex items-center rounded-lg justify-between p-2 bg-red-50 font-body">
                         <div className="flex items-start w-full justify-between">
-                          <p className="flex-grow w-full text-2xl text-gray-700 font-medium">
-                            <span className="text-gray-700 font-light text-md">
+                          <p className="flex-grow w-full text-xl sm:text-2xl text-gray-600 font-medium">
+                            <span className="text-gray-600 font-light text-md">
                               ৳{" "}
                             </span>
                             {order.price}
-                            <span className="text-sm font-light text-gray-700 font-medium">
+                            <span className="text-sm text-gray-600 font-medium">
                               /day
                             </span>
                           </p>
-                          <span className="px-3 py-1 flex-none text-sm rounded-full text-red-800 border border-red-300">
+                          <span className="px-3 py-1 flex-none text-xs sm:text-sm rounded-full text-red-800 border border-red-300">
                             {new Date(order.orderDate).toLocaleDateString(
                               "en-US",
                               options
@@ -150,7 +152,8 @@ const MyOrder = () => {
               );
             })
           ) : (
-            <div className="px-6 py-6 mx-auto text-center items-center px-1 max-w-sm border-rounded">
+            // if user have no order list
+            <div className="py-6 mx-auto text-center items-center px-1 max-w-sm border-rounded">
               <div className="shadow-lg rounded-2xl w-64 bg-white">
                 <img
                   alt="cover"

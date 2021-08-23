@@ -45,7 +45,7 @@ const Nav = () => {
               Wedding <span className="text-red-accent-700"> Photography</span>
             </span>
           </Link>
-          <ul className="flex items-center hidden space-x-8 lg:flex">
+          <ul className="hidden items-center space-x-8 lg:flex">
             {/* Nav Items */}
             <NavItems isSticky={isSticky} />
             <li>
@@ -64,6 +64,8 @@ const Nav = () => {
               )}
             </li>
           </ul>
+
+          {/* Mobile Menu */}
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"
@@ -86,6 +88,8 @@ const Nav = () => {
                 />
               </svg>
             </button>
+
+            {/* If open navbar mobile view */}
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full z-50">
                 <div className="p-5 bg-white border rounded shadow-sm">

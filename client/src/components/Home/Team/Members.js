@@ -5,6 +5,7 @@ const Members = ({ members }) => {
 
   return (
     <div>
+      {/* Single team members data */}
       <div className="relative pb-56 mb-4 rounded shadow-none sm:shadow lg:pb-64">
         <img
           className="absolute object-contain sm:object-cover w-max sm:w-full h-full rounded hover:opacity-95"

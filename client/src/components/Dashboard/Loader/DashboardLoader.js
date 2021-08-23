@@ -5,10 +5,10 @@ const DashboardLoader = (props) => {
   return (
     <ContentLoader
       width={"100%"}
-      height={600}
+      height={540}
       viewBox="0 0 850 600"
-      backgroundColor="#f0f0f0"
-      foregroundColor="#dedede"
+      backgroundColor="#FFEBEE"
+      foregroundColor="#FAFAFA"
       {...props}
     >
       <rect x="43" y="304" rx="4" ry="4" width="271" height="9" />

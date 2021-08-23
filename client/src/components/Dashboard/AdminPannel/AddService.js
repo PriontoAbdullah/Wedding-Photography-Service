@@ -8,6 +8,7 @@ const AddService = ({ editService, restrictPermission, setEditService }) => {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
 
+  // submit form data
   const onSubmit = async (data) => {
     if (!editService && !data.image[0]) {
       return toast.error("Please upload an image!");
@@ -32,6 +33,7 @@ const AddService = ({ editService, restrictPermission, setEditService }) => {
       }
     }
 
+    // set new service data
     const serviceInfo = {
       title: data.title,
       description: data.description,
@@ -43,6 +45,7 @@ const AddService = ({ editService, restrictPermission, setEditService }) => {
       outdoorPhotoshoot: data.outdoorPhotoshoot,
     };
 
+    // for modify service data
     if (editService) {
       if (restrictPermission(editService._id)) {
         toast.dismiss(loading);
@@ -85,6 +88,7 @@ const AddService = ({ editService, restrictPermission, setEditService }) => {
       return;
     }
 
+    // for add service data
     axios
       .post(
         "https://wedding-photography-71.herokuapp.com/addService",
@@ -105,7 +109,7 @@ const AddService = ({ editService, restrictPermission, setEditService }) => {
     <section>
       <div className="container items-center px-5  lg:px-20">
         <form
-          className="flex flex-col w-full shadow-3xl pt-6 mb-8 px-8 mx-auto mt-4 mb-8 transition duration-500 ease-in-out transform bg-white border rounded-lg lg:w-3/4"
+          className="flex flex-col w-full shadow-3xl pt-6 px-8 mx-auto mt-4 mb-8 transition duration-500 ease-in-out transform bg-white border rounded-lg lg:w-3/4"
           onSubmit={handleSubmit(onSubmit)}
         >
           <h2 className="text-2xl font-display mb-2 font-semibold text-center text-red-accent-700 dark:text-white">
@@ -264,7 +268,7 @@ const AddService = ({ editService, restrictPermission, setEditService }) => {
                   <div className="flex text-sm text-gray-600">
                     <label
                       htmlFor="upload"
-                      className="relative cursor-pointer bg-white rounded-md font-medium text-red-accent-700 hover:text-red-900 bg-red-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                      className="relative cursor-pointer rounded-md font-medium text-red-accent-700 hover:text-red-900 bg-red-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                     >
                       <span>
                         {" "}

@@ -21,6 +21,8 @@ const Hero = ({ data }) => {
           alt="banner1"
         />
       </div>
+
+      {/* Banner Content */}
       <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
         <div className="my-16 lg:my-44 lg:max-w-lg lg:pr-5">
           <p className="inline-block px-4 py-1 mb-4 text-xs font-body font-medium tracking-wider text-white uppercase rounded-full bg-red-400">

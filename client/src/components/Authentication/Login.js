@@ -26,6 +26,7 @@ const Login = () => {
 
   useEffect(() => pathname === "/login", [pathname]);
 
+  // Google Sign In
   const googleSignIn = () => {
     initializeLoginFramework();
     const loading = toast.loading("Please wait...");
@@ -40,11 +41,13 @@ const Login = () => {
       });
   };
 
+  // Sign In with Email and Password
   const onSubmit = (data) => {
     initializeLoginFramework();
     const loading = toast.loading("Please wait...");
     const { name, email, password } = data;
 
+    // For Login
     if (newUser && name && email && password) {
       createUserWithEmailAndPassword(name, email, password)
         .then((res) => {
@@ -58,6 +61,7 @@ const Login = () => {
         });
     }
 
+    // For Registration
     if (!newUser && email && password) {
       signInWithEmailAndPassword(email, password)
         .then((res) => {
@@ -71,6 +75,7 @@ const Login = () => {
     }
   };
 
+  // Set with JWT token
   const handleResponse = (res) => {
     setLoggedInUser(res);
 
@@ -79,6 +84,7 @@ const Login = () => {
     toast.success("Successfully Logged In!");
   };
 
+  // Show admin credentials modal
   const showAdminCredentials = () => {
     toast.custom((notify) => (
       <div
@@ -128,9 +134,10 @@ const Login = () => {
           </span>
         </Link>
 
+        {/* Log in Component */}
         {!newUser ? (
           <div>
-            <h1 className="mt-6 text-xl font-display font-semibold text-black tracking-tight sm:text-2xl title-font text-gray-900">
+            <h1 className="mt-6 text-xl font-display font-semibold tracking-tight sm:text-2xl title-font text-gray-900">
               Log in to your account
             </h1>
             <form className="mt-4" onSubmit={handleSignIn(onSubmit)}>
@@ -168,8 +175,8 @@ const Login = () => {
               <button type="submit" className="email-button">
                 Login with Email
               </button>
-              {/* 
-              Google Signin */}
+
+              {/* Google Signin */}
               <div className="flex items-center justify-between  my-6 ">
                 <span className="w-1/5 border-b lg:w-1/4" />
                 <span className="text-xs text-center text-gray-700 font-medium font-body tracking-wider">
@@ -213,8 +220,9 @@ const Login = () => {
             </p>
           </div>
         ) : (
+          // Sign in Component
           <div>
-            <h1 className="mt-6 text-xl font-display font-semibold text-black tracking-tight sm:text-2xl title-font text-gray-900">
+            <h1 className="mt-6 text-xl font-display font-semibold tracking-tight sm:text-2xl title-font text-gray-900">
               Cerate a new account
             </h1>
             <form className="mt-4" onSubmit={handleSignUp(onSubmit)}>
@@ -224,7 +232,6 @@ const Login = () => {
                 </label>
                 <input
                   {...registerSignUp("name", { required: true })}
-                  t
                   type="text"
                   minLength="6"
                   placeholder="Your Name"
@@ -275,10 +282,11 @@ const Login = () => {
         )}
       </div>
 
+      {/* Login Image */}
       <div className="col-span-1 lg:col-span-8 pt-8 lg:pt-0">
         <img
           src={loginImage}
-          alt="login_image"
+          alt="login"
           className="object-cover w-full h-64 min-h-full bg-gray-100"
           loading="lazy"
         />

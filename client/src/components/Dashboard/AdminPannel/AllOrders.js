@@ -28,6 +28,7 @@ const AllOrders = () => {
     setViewOrder(selectedOrder);
   };
 
+  // get all orders
   useEffect(() => {
     axios
       .get(`https://wedding-photography-71.herokuapp.com/orders?email=${email}`)
@@ -70,6 +71,8 @@ const AllOrders = () => {
             </form>
           </div>
         </div>
+
+        {/* view all orders */}
         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
           {loading ? (
             <SkeletonComponent />
@@ -104,25 +107,26 @@ const AllOrders = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-5 pb-3 pt-4 bg-red-50 border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-semibold"
+                      className="px-5 pb-3 pt-4 bg-red-50 border-b border-gray-200 text-gray-800  text-left pl-12 text-sm uppercase font-semibold"
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      className="px-5 pb-3 pt-4 bg-red-50 border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-semibold"
+                      className="px-5 pb-3 pt-4 bg-red-50 border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-semibold"
                     >
                       Action
                     </th>
                   </tr>
                 </thead>
 
+                {/* all Orders data row */}
                 {orders.map((order) => {
                   return (
                     <tbody key={order._id}>
                       <tr>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white font-body font-medium text-sm">
-                          <div className="flex items-center">
+                          <div className="flex items-center w-24 sm:w-full">
                             <div className="flex-shrink-0">
                               <a href="/" className="block relative">
                                 <img
@@ -153,13 +157,13 @@ const AllOrders = () => {
                           </p>
                         </td>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p className="text-gray-900 whitespace-no-wrap">
+                          <p className="text-gray-900 whitespace-no-wrap w-16">
                             ৳ {order.price}
                           </p>
                         </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm ">
                           <span
-                            className={`relative inline-block px-3 py-1 font-semibold leading-tight ${
+                            className={`relative inline-block px-3 py-1 w-28 text-center font-semibold leading-tight ${
                               order.status === "Pending"
                                 ? "text-yellow-600"
                                 : order.status === "Confirmed"
@@ -216,6 +220,7 @@ const AllOrders = () => {
                 })}
               </table>
 
+              {/* Pagination */}
               <div className="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
                 <div className="flex items-center">
                   <button

@@ -10,6 +10,7 @@ const ContactUs = () => {
   } = useContext(UserContext);
   const { register, handleSubmit, reset } = useForm();
 
+  // submit a new message
   const onSubmit = (data) => {
     const loading = toast.loading("Sending... Please wait!");
     data.img = photo || "https://i.imgur.com/1As0akH.png";
@@ -17,6 +18,7 @@ const ContactUs = () => {
     data.name = name;
     data.time = new Date().toLocaleString();
 
+    // post a new message
     axios
       .post("https://wedding-photography-71.herokuapp.com/addMessage", data)
       .then((res) => {

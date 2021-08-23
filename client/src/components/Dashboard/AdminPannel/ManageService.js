@@ -17,6 +17,7 @@ const ManageService = () => {
     </SkeletonTheme>
   );
 
+  // Get all services
   useEffect(() => {
     axios
       .get("https://wedding-photography-71.herokuapp.com/services")
@@ -27,6 +28,7 @@ const ManageService = () => {
       .catch((error) => toast.error(error.message));
   }, [editService]);
 
+  // check super admin authorization
   const restrictPermission = (id) => {
     if (
       id === "61212885c0c71180cb203a2d" ||
@@ -39,6 +41,7 @@ const ManageService = () => {
     return false;
   };
 
+  // handle delete service
   const handleDeleteService = (id) => {
     if (restrictPermission(id)) {
       return toast.error(
@@ -65,6 +68,7 @@ const ManageService = () => {
       });
   };
 
+  // for edit service
   return editService._id ? (
     <AddService
       editService={editService}
@@ -72,6 +76,7 @@ const ManageService = () => {
       restrictPermission={restrictPermission}
     />
   ) : (
+    // for manage service
     <section>
       <div className="container mx-auto px-4 sm:px-8 max-w-full sm:max-w-5xl">
         <div className="flex flex-row mb-1 sm:mb-0 justify-between w-full">
@@ -120,6 +125,7 @@ const ManageService = () => {
                   </tr>
                 </thead>
 
+                {/* get all service data */}
                 {services.map((service) => {
                   return (
                     <tbody key={service._id}>
@@ -131,7 +137,7 @@ const ManageService = () => {
                                 <img
                                   alt="User Avatar"
                                   src={service.image}
-                                  className="mx-auto object-cover rounded h-12 w-32"
+                                  className="mx-auto object-cover rounded h-12 w-28 sm:w-32"
                                 />
                               </a>
                             </div>
@@ -201,6 +207,7 @@ const ManageService = () => {
                 })}
               </table>
 
+              {/* Pagination */}
               <div className="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
                 <div className="flex items-center">
                   <button

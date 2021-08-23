@@ -13,7 +13,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
           <div className="flex">
             {/* Hamburger button */}
             <button
-              className="text-red-600 hover:text-red-900 lg:hidden"
+              className="font-bold text-red-600 hover:text-red-900 lg:hidden"
               aria-controls="sidebar"
               aria-expanded={sidebarOpen}
               onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -29,6 +29,8 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
                 <rect x="4" y="17" width="16" height="2" />
               </svg>
             </button>
+
+            {/* Page Title */}
             <h1 className="ml-2 sm:ml-0 font-display font-semibold text-base sm:text-xl text-gray-900">
               {panel === "profile"
                 ? "Dashboard"
@@ -49,7 +51,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
                 : panel === "contact"
                 ? "Contact Us"
                 : null}{" "}
-              🚀
+              <span className="hidden sm:inline-flex">🚀</span>
             </h1>
           </div>
 

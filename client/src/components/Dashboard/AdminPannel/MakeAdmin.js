@@ -8,6 +8,7 @@ const MakeAdmin = () => {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
 
+  // add a new Admin user
   const onSubmit = (data) => {
     const loading = toast.loading("Adding...Please wait!");
     axios

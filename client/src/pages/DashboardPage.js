@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import Dashboard from "../components/Dashboard/Dashboard";
 
-const DashboardPage = () => {
+const DashboardPage = ({ adminLoading }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div>
-      <Dashboard />
+      <Dashboard adminLoading={adminLoading} />
     </div>
   );
 };

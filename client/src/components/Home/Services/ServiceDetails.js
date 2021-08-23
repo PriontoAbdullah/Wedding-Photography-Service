@@ -10,6 +10,7 @@ const ServiceDetails = () => {
       <div className="text-gray-600 body-font overflow-hidden">
         <div className="container pt-24 pb-12 mx-auto">
           <div className="lg:w-11/12 mx-auto flex flex-wrap">
+            {/* Service Data Content */}
             <div className="lg:w-1/2 w-full lg:pr-10 lg:pt-4 mb-6 lg:mb-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest pb-2">
                 Wedding
@@ -82,6 +83,8 @@ const ServiceDetails = () => {
                 </button>
               </div>
             </div>
+
+            {/* Service Image */}
             <img
               alt="ecommerce"
               className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded shadow"

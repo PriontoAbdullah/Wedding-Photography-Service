@@ -13,6 +13,7 @@ const UserMenu = () => {
     setLoggedInUser,
   } = useContext(UserContext);
 
+  // handle sign out
   const signOut = () => {
     initializeLoginFramework();
 

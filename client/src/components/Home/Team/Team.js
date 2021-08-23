@@ -54,6 +54,8 @@ const Team = () => {
             Cinematography services to make your dream come true.
           </p>
         </div>
+
+        {/* All team members data cards */}
         <div className="grid gap-10 mx-auto grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">
           {teamMembers?.map((members) => (
             <Members key={members._id} members={members} />

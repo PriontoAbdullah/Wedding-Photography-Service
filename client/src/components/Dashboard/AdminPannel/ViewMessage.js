@@ -5,7 +5,7 @@ const ViewMessage = ({ setMessageModal, viewMessage }) => {
   return (
     <section>
       <div className="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none backdrop-filter saturate-150 backdrop-blur-sm">
-        <div className="container items-center px-5 py-12 lg:mt-10 lg:px-20 ml-0 lg:ml-20">
+        <div className="container items-center px-5 py-12 mt-16 lg:px-20 ml-0 lg:ml-20">
           <div
             className="w-full mx-auto border rounded-lg shadow-xl text-gray-800 lg:w-5/12 bg-white"
             aria-hidden="false"

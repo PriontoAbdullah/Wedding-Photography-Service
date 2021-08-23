@@ -3,10 +3,12 @@ import "firebase/auth";
 import jwt_decode from "jwt-decode";
 import firebaseConfig from "./firebaseConfig";
 
+// initialize Firebase
 export const initializeLoginFramework = () => {
   !firebase.apps.length && firebase.initializeApp(firebaseConfig);
 };
 
+// handle google signIn
 export const handleGoogleSignIn = () => {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   return firebase
@@ -15,6 +17,7 @@ export const handleGoogleSignIn = () => {
     .then((res) => handleResponse(res));
 };
 
+// register with email and password
 export const createUserWithEmailAndPassword = (name, email, password) => {
   return firebase
     .auth()
@@ -32,6 +35,7 @@ const updateUserName = (name) => {
   });
 };
 
+// login with email and password
 export const signInWithEmailAndPassword = (email, password) => {
   return firebase
     .auth()
@@ -39,6 +43,7 @@ export const signInWithEmailAndPassword = (email, password) => {
     .then((res) => handleResponse(res));
 };
 
+// set new user info
 const handleResponse = (res) => {
   const { displayName, photoURL, email } = res.user;
   const signedInUser = {
@@ -50,6 +55,7 @@ const handleResponse = (res) => {
   return signedInUser;
 };
 
+// set jwt token
 export const setJWTToken = () => {
   return firebase
     .auth()
@@ -59,6 +65,7 @@ export const setJWTToken = () => {
     });
 };
 
+// decode jwt token
 export const getDecodedUser = () => {
   const token = localStorage.getItem("token");
   if (!token) {
@@ -74,6 +81,7 @@ export const getDecodedUser = () => {
   return decodedUser;
 };
 
+// handle log out
 export const handleSignOut = () => {
   return firebase
     .auth()

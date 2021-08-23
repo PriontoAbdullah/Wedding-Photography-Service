@@ -76,6 +76,8 @@ const Services = () => {
             provide pre wedding photography service in Bangladesh.
           </p>
         </div>
+
+        {/* Service Cards */}
         <div>
           <Swiper
             slidesPerView={onSmallScreen ? "1" : "auto"}

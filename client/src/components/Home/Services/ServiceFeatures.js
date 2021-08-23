@@ -45,6 +45,8 @@ const ServiceFeatures = () => {
                 tear from your loved one’s cheek.
               </p>
             </div>
+
+            {/* Service features list */}
             <div className="flex flex-wrap lg:w-10/12 sm:mx-auto sm:mb-2 -mx-2">
               {FeaturesList?.map((list) => (
                 <div key={list._id} className="p-2 sm:w-1/2 w-full">
