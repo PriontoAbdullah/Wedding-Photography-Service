@@ -29,6 +29,17 @@
 - **JWT Token**
 - **Heroku**
 
+### Admin Dashboard
+
+> ### Email
+``` 
+ test@test.com
+```
+> ### Password
+``` 
+ #2021dev
+```
+
 <hr/>
 
 <a  href="https://wedding-photography-bd.web.app">
